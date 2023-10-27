@@ -6,6 +6,7 @@ import { AuthService } from 'src/app/shared/services/auth.service';
 import { Router } from '@angular/router';
 import { getAuth, updateProfile } from 'firebase/auth';
 import { ToggleService } from 'src/app/shared/services/toggle.service';
+import { AngularFireDatabase } from '@angular/fire/compat/database';
 
 @Component({
   selector: 'app-register',
@@ -32,7 +33,11 @@ export class RegisterComponent implements OnInit {
     ),
   });
 
-  constructor(public authService: AuthService, private fb: FormBuilder,  private router: Router, private toggleService: ToggleService) {}
+  constructor(public authService: AuthService, private fb: FormBuilder,  private router: Router, private toggleService: ToggleService, private db: AngularFireDatabase) {}
+
+  createUser(uid: string, data: any) {
+    return this.db.object(`users/${uid}`).set(data);
+  }
 
   registerMe() {
     const { name, email, pass: {password} = {} } = this.form.value;
@@ -58,8 +63,13 @@ export class RegisterComponent implements OnInit {
       }
       const auth = getAuth();
       updateProfile(auth.currentUser!, {
-        displayName: email?.split('@')[0],
+        displayName: name,
         photoURL: 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/Unknown_person.jpg/434px-Unknown_person.jpg'
+      });
+      this.createUser(auth.currentUser.uid, {
+        name: name,
+        email: email,
+        role: this.isToggled ? 'business' : 'user',
       });
     });
   }

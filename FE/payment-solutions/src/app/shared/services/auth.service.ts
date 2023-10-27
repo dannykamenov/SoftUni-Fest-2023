@@ -7,6 +7,7 @@ import {
   AngularFirestoreDocument,
 } from '@angular/fire/compat/firestore';
 import { Router } from '@angular/router';
+import { AngularFireDatabase } from '@angular/fire/compat/database';
 @Injectable({
   providedIn: 'root',
 })
@@ -17,6 +18,7 @@ export class AuthService {
     public afAuth: AngularFireAuth, // Inject Firebase auth service
     public router: Router,
     public ngZone: NgZone, // NgZone service to remove outside scope warning
+    private db: AngularFireDatabase
   ) {
     this.afAuth.authState.subscribe((user) => {
       if (user) {
@@ -141,11 +143,24 @@ export class AuthService {
     }
   }
 
+  getUserRole(uid: string) {
+    return this.db.object(`users/${uid}`).valueChanges();
+  }
 
-  SetUserData(user: any) {
+  // Store user in localStorage
+
+
+
+  SetUserData(user: any) {;
+
     const userRef: AngularFirestoreDocument<any> = this.afs.doc(
       `users/${user.uid}`
     );
+
+    this.getUserRole(user.uid).subscribe((data: any) => {
+      localStorage.setItem('role', data.role);
+    });
+
     const userData: User = {
       uid: user.uid,
       email: user.email,
@@ -162,7 +177,9 @@ export class AuthService {
   SignOut() {
     return this.afAuth.signOut().then(() => {
       localStorage.removeItem('user');
+      localStorage.removeItem('role');
       this.router.navigate(['/']);
     });
   }
+
 }
