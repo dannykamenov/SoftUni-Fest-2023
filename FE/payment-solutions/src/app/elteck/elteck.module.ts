@@ -11,6 +11,7 @@ import { NotFoundComponent } from './not-found/not-found.component';
 import { EditReviewComponent } from './edit-review/edit-review.component';
 import { SearchComponent } from './search/search.component';
 import { MerchantPageComponent } from './merchant-page/merchant-page.component';
+import { ProductPageComponent } from './product-page/product-page.component';
 
 
 
@@ -23,7 +24,8 @@ import { MerchantPageComponent } from './merchant-page/merchant-page.component';
     NotFoundComponent,
     EditReviewComponent,
     SearchComponent,
-    MerchantPageComponent
+    MerchantPageComponent,
+    ProductPageComponent
   ],
   imports: [
     FormsModule,

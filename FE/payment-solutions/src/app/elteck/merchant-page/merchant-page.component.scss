@@ -67,6 +67,22 @@ h2,p,h1 {
     text-align: center;
 }
 
+.product-cta {
+    text-align: center;
+    padding: 1px;
+    text-decoration: none;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+i {
+    color: #2196F3;
+}
+
+i:hover {
+    transform: scale(1.2);
+}
+
 .gallery-container > .last-image {
     margin-bottom: 100px;
 }

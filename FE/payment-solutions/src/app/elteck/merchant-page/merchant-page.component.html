@@ -15,6 +15,10 @@
                     <h2 class="date"><strong>On our platform since:</strong> {{merchantInfo.date}}</h2>
                     <h2 class="date"><strong>Email:</strong> {{merchantInfo.email}}</h2>
                     <h2 class="date product-list"><strong>Products:</strong></h2>
+                    <ng-container *ngFor="let offer of merchantOffers">
+                        <p class="product-cta" routerLink="/product-info/{{offer._id}}">{{offer.title}} <i class="fa-solid fa-share-from-square"></i></p>
+                    </ng-container>
+                    
                 </div>
             </ng-container>
         </div>
