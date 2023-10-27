@@ -1,12 +1,12 @@
 export const environment = {
     production: false,
     firebase: {
-      apiKey: "AIzaSyBoqVr-9C_NeUGLADuIoZ0IdJVvdyBkA5M",
-      authDomain: "elteck-electric.firebaseapp.com",
-      projectId: "elteck-electric",
-      storageBucket: "elteck-electric.appspot.com",
-      messagingSenderId: "818208940596",
-      appId: "1:818208940596:web:49209b19d92fe781936061",
-      measurementId: "G-YM72NDKX2W"
+      apiKey: "AIzaSyCSiEKNmP6n-c00OiaXJYRTyAmpSx93fGQ",
+      authDomain: "softuni-fest-2023.firebaseapp.com",
+      projectId: "softuni-fest-2023",
+      storageBucket: "softuni-fest-2023.appspot.com",
+      messagingSenderId: "441363943360",
+      appId: "1:441363943360:web:c8076ea02fab940edf0225",
+      measurementId: "G-DWVX51CJWT"
     },
 };
