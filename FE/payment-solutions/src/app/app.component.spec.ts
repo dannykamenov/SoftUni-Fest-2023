@@ -14,16 +14,16 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have as title 'payment-solutions'`, () => {
+  it(`should have as title 'elteck-angular-final'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('payment-solutions');
+    expect(app.title).toEqual('elteck-angular-final');
   });
 
   it('should render title', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('.content span')?.textContent).toContain('payment-solutions app is running!');
+    expect(compiled.querySelector('.content span')?.textContent).toContain('elteck-angular-final app is running!');
   });
 });
