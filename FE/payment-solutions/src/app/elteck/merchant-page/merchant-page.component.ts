@@ -9,9 +9,17 @@ import { ApiService } from 'src/app/shared/services/api.service';
 })
 export class MerchantPageComponent {
 
+  merchantInfo: any;
+  merchantOffers: any;
+  isLoading = true;
+  isNotLoading = false;
+
   constructor(private api: ApiService, private router: Router) {
     this.api.getMerchant(this.router.url.split('/')[2]).subscribe((res) => {
-      console.log(res);
+      this.merchantInfo = res[0];
+      this.merchantOffers = res;
+      this.isLoading = false;
+      this.isNotLoading = true;
     });
    }
 
