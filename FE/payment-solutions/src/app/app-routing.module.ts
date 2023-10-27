@@ -17,6 +17,7 @@ import { MyReviewsComponent } from './elteck/my-reviews/my-reviews.component';
 import { Title } from '@angular/platform-browser';
 import { NotFoundComponent } from './elteck/not-found/not-found.component';
 import { EditReviewComponent } from './elteck/edit-review/edit-review.component';
+import { SearchComponent } from './elteck/search/search.component';
 
 const routes: Routes = [
   {path: '', pathMatch: 'full', component: HomeComponent, data: {title: 'Home'}},
@@ -28,11 +29,12 @@ const routes: Routes = [
   {path: 'forgot-password', component: ForgotPasswordComponent, data: {title: 'Forgot Password'}, canActivate: [AuthGuard2]},
   {path: 'verify-email', component: VerifyEmailComponent, data: {title: 'Verify Email'}, canActivate: [AuthGuard2]},
   {path: 'gallery', component: GalleryComponent, data: {title: 'Gallery'}, canActivate: [AuthGuard]},
-  {path: 'reviews', component: ReviewPageComponent, data: {title: 'Reviews'}, canActivate: [AuthGuard]},
+  {path: 'products', component: ReviewPageComponent, data: {title: 'Reviews'}, canActivate: [AuthGuard]},
   {path: 'create-review', component: PostReviewComponent, data: {title: 'Create Review'}, canActivate: [AuthGuard]},
   {path: 'my-reviews', component: MyReviewsComponent, data: {title: 'My Reviews'}, canActivate: [AuthGuard]},
   {path: 'not-found', component: NotFoundComponent, data: {title: 'Not Found'}},
   {path: 'edit-review/:id', component: EditReviewComponent, data: {title: 'Edit Review'}, canActivate: [AuthGuard]},
+  {path: 'search', component: SearchComponent, data: {title: 'Search'}, canActivate: [AuthGuard]},
   {path: '**', redirectTo: 'not-found', data: {title: 'Not Found'}},
   
 ];

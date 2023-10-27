@@ -7,9 +7,14 @@
       <ul class="nav__links">
         <li><a routerLink="/about">Our Partners</a></li>
         <ng-container *ngIf="isLoggedIn">
-        <li><a routerLink="/gallery">Gallery</a></li>
+          <ng-container *ngIf="roleUser">
+            <li><a routerLink="/search">Search</a></li>
+          </ng-container>
+          <ng-container *ngIf="roleBusiness">
+            <li><a routerLink="/products">Products</a></li>
+          </ng-container>
+          
         <li><a routerLink="/contact">Contact Us</a></li>
-        <li><a routerLink="/reviews">Reviews</a></li>
         <li><a routerLink="/my-profile">My Profile</a></li>
         <li><a href="" (click)="authService.SignOut()">Logout</a></li>
       </ng-container>

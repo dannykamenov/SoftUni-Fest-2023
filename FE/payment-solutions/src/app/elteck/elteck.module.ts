@@ -9,6 +9,7 @@ import { MyReviewsComponent } from './my-reviews/my-reviews.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { EditReviewComponent } from './edit-review/edit-review.component';
+import { SearchComponent } from './search/search.component';
 
 
 
@@ -19,7 +20,8 @@ import { EditReviewComponent } from './edit-review/edit-review.component';
     PostReviewComponent,
     MyReviewsComponent,
     NotFoundComponent,
-    EditReviewComponent
+    EditReviewComponent,
+    SearchComponent
   ],
   imports: [
     FormsModule,

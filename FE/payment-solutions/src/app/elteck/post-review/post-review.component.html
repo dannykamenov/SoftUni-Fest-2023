@@ -28,34 +28,41 @@
     <section class="overlap-contact-section">
       <div class="contact-form">
         <div class="container">
-          <h2>Leave a Review!</h2>
+          <h2>Upload your product!</h2>
           <div class="displayTable">
               <div class="displayTableCell">
                 <div class="authBlock">
                   <form #form="ngForm">
                   <div class="formGroup">
-                    <ng-container *ngFor="let i of stars">
-                        <i class="fa-solid fa-star" [ngClass]="{'active': i<=rating }" (mouseenter)="mouseEnterHandler(i)" (mouseleave)="mouseLeaveHandler()" (click)="clickHandler(i)"></i>
-                    </ng-container>
-                    <ng-container *ngIf="saveRating<=0">
-                      <p class="error">You must select a star rating!</p>
-                    </ng-container>
-                    
+                    <input
+                    type="text"
+                  class="formControl"
+                  placeholder="Title"
+                  required
+                  #title="ngModel"
+                  ngModel
+                  maxlength="50"
+                  name="Title"
+                />
+                <ng-container *ngIf="title.touched">
+                  <p class="error" *ngIf="title.errors?.['required']">Title is required!</p>
+                  <p class="error" *ngIf="title.errors?.['maxlength']">Title cannot exceed 50 characters!</p>
+                </ng-container>
                   </div>
                   <div class="formGroup">
                     <input
-                        type="text"
+                        type="number"
                       class="formControl"
-                      placeholder="Title"
+                      placeholder="Price"
                       required
-                      #title="ngModel"
+                      #price="ngModel"
                       ngModel
-                      maxlength="50"
-                      name="Title"
+                      min="1"
+                      name="Price"
                     />
-                    <ng-container *ngIf="title.touched">
-                      <p class="error" *ngIf="title.errors?.['required']">Title is required!</p>
-                      <p class="error" *ngIf="title.errors?.['maxlength']">Title cannot exceed 50 characters!</p>
+                    <ng-container *ngIf="price.touched">
+                      <p class="error" *ngIf="price.errors?.['required']">Price is required!</p>
+                      <p class="error" *ngIf="price.errors?.['min']">Price must be at least $1!</p>
                     </ng-container>
                     
                   </div>

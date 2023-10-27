@@ -21,11 +21,17 @@ export class HomeComponent implements OnInit {
       if(localStorage.getItem('role')) {
         this.userRole = true;
       }
+      if(localStorage.getItem('role') === 'business') {
+        this.isToggled = true;
+      }
     }
   
   ngOnInit() {
     this.toggleService.toggle$.subscribe(value => {
       this.isToggled = value;
+      if(localStorage.getItem('role') === 'business') {
+        this.isToggled = true;
+      }
     });
   }
   
