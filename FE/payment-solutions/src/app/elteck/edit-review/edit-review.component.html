@@ -34,12 +34,7 @@
                 <div class="authBlock">
                   <form #form="ngForm">
                   <div class="formGroup">
-                    <ng-container *ngFor="let i of stars">
-                        <i class="fa-solid fa-star" [ngClass]="{'active': i<=rating }" (mouseenter)="mouseEnterHandler(i)" (mouseleave)="mouseLeaveHandler()" (click)="clickHandler(i)"></i>
-                    </ng-container>
-                    <ng-container *ngIf="saveRating<=0">
-                      <p class="error">You must select a star rating!</p>
-                    </ng-container>
+
                     
                   </div>
                   <div class="formGroup">
@@ -82,7 +77,7 @@
                       type="button"
                       class="btn btnPrimary"
                       value="Edit Review!"
-                      [disabled]="form.invalid || saveRating<=0"
+                      [disabled]="form.invalid"
                       (click)="editReview(title.value, review.value)"
                     />
                   </div>

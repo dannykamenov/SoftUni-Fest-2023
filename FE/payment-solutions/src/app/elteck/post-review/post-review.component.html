@@ -69,16 +69,16 @@
                   <div class="formGroup">
                     <textarea
                       class="formControl"
-                      placeholder="What did you think about us?"
+                      placeholder="Describe your product!"
                       required
-                      #review="ngModel"
+                      #description="ngModel"
                       ngModel
                       maxlength="200"
-                      name="review"
+                      name="description"
                     ></textarea>
-                    <ng-container *ngIf="review.touched">
-                      <p class="error" *ngIf="review.errors?.['required']">Description is required!</p>
-                      <p class="error" *ngIf="review.errors?.['maxlength']">Description cannot exceed 200 characters!</p>
+                    <ng-container *ngIf="description.touched">
+                      <p class="error" *ngIf="description.errors?.['required']">Description is required!</p>
+                      <p class="error" *ngIf="description.errors?.['maxlength']">Description cannot exceed 200 characters!</p>
                     </ng-container>
                   </div>
                 </form>
@@ -87,8 +87,8 @@
                       type="button"
                       class="btn btnPrimary"
                       value="Post Review!"
-                      [disabled]="form.invalid || saveRating<=0"
-                      (click)="postReview(title.value, review.value)"
+                      [disabled]="form.invalid"
+                      (click)="postReview(title.value, description.value, price.value)"
                     />
                   </div>
                   <p class="error" *ngIf="error">{{error}}</p>

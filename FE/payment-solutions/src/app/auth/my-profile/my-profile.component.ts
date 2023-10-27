@@ -3,7 +3,7 @@ import { AuthService } from 'src/app/shared/services/auth.service';
 import { getAuth, updateProfile } from 'firebase/auth';
 import { AngularFireStorage } from '@angular/fire/compat/storage';
 import { ApiService } from 'src/app/shared/services/api.service';
-import { Review } from 'src/app/shared/services/review';
+import { Product } from 'src/app/shared/services/review';
 /* import {
   Storage,
   ref,

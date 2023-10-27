@@ -1,12 +1,10 @@
-export interface Review {
-    uid: string;
+export interface Product {
     title: string;
-    content: string;
-    rating: number;
-    username: string | null;
-    useremail: string | null;
-    userimage: string | null;
-    isAuth: boolean;
-    isEdited: false;
-
+    description: string;
+    user: string;
+    email: string;
+    date: string;
+    uid: string;
+    price: number; 
+    photoURL?: string;
 }

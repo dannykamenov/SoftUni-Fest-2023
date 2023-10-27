@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Review } from './review';
+import { Product } from './review';
 import { getReview } from './getReview';
 import { Observable, catchError, map, throwError } from 'rxjs';
 
@@ -11,8 +11,8 @@ export class ApiService {
 
   constructor(private http: HttpClient) { }
 
-  addReview(review: Review) {
-    return this.http.post<Review>('https://elteck-production-server.onrender.com/api/reviews', review).pipe(
+  addProduct(review: Product) {
+    return this.http.post<Product>('https://elteck-production-server.onrender.com/api/reviews', review).pipe(
       catchError((error: any) => {
         return throwError(error);
       })
@@ -28,7 +28,7 @@ export class ApiService {
   }
 
   updateUserInfo(review: any) {
-    return this.http.post<Review>('https://elteck-production-server.onrender.com/api/update', review);
+    return this.http.post<Product>('https://elteck-production-server.onrender.com/api/update', review);
   }
 
   getAverageRating() {
@@ -44,10 +44,10 @@ export class ApiService {
   }
 
   getReview(id: string) {
-    return this.http.get<Review>(`https://elteck-production-server.onrender.com/api/reviews/${id}`);
+    return this.http.get<Product>(`https://elteck-production-server.onrender.com/api/reviews/${id}`);
   } 
 
   updateReview(review: any) {
-    return this.http.put<Review>(`https://elteck-production-server.onrender.com/api/reviews/${review.id}`, review);
+    return this.http.put<Product>(`https://elteck-production-server.onrender.com/api/reviews/${review.id}`, review);
   }
 }
