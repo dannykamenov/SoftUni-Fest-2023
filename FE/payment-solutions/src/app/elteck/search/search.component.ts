@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { NgModel } from '@angular/forms';
 import { Observable } from 'rxjs';
 import { FirebaseStorageService } from 'src/app/shared/services/firebase-storage.service';
 
@@ -18,5 +19,10 @@ export class SearchComponent {
       this.isNotLoading = true;
       setTimeout(() => {this.isLoading = false}, 1000);
     });
+  }
+
+  searchBox(searchInput: NgModel) {
+    const searchTerm = searchInput.value;
+    searchInput.reset();
   }
 }

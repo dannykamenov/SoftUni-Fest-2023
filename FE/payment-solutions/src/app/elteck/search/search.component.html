@@ -3,8 +3,8 @@
     <section class="gallery-section">
         <div class="gallery-container">
             <div class="box">
-                <input type="text" name="" id="">
-                <a href="">
+                <input type="text" name="search" id="" placeholder="Search..." #search="ngModel" ngModel>
+                <a (click)="searchBox(search)">
                     <i class="fas fa-search"></i>
                 </a>
             </div>

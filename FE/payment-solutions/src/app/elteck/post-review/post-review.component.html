@@ -42,7 +42,7 @@
                   #title="ngModel"
                   ngModel
                   maxlength="50"
-                  name="Title"
+                  name="title"
                 />
                 <ng-container *ngIf="title.touched">
                   <p class="error" *ngIf="title.errors?.['required']">Title is required!</p>
@@ -58,7 +58,7 @@
                       #price="ngModel"
                       ngModel
                       min="1"
-                      name="Price"
+                      name="price"
                     />
                     <ng-container *ngIf="price.touched">
                       <p class="error" *ngIf="price.errors?.['required']">Price is required!</p>

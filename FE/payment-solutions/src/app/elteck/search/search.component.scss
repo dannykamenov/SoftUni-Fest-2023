@@ -27,7 +27,6 @@ main {
 .gallery-container {
     width: 100%;
     margin: 0 auto;
-    margin: 0px 20px;
     height: 100%;
     display: flex;
     overflow: hidden;
@@ -60,7 +59,41 @@ main {
     height: 35vh;
     overflow-y: hidden;
 }
+
+.box {
+    margin-top: 15px;
+    display: flex;
+    width: 30%;
+    padding: 20px 20px;
+    background-color: white;
+    align-items: center;
+    height: 40px;
+    border-radius: 30px;
+    cursor: pointer;
+}
     
+input[type="text"] {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  outline: none;
+  border: none;
+  background: transparent;
+}
+
+i {
+    margin-right: 10px;
+    font-size: 20px;
+    color: #24252a;
+}
+
+.whitespace {
+    height: 40vh;
+    width: 100%;
+    background-color: #A7AFBA;
+}
+
 @media screen and (max-width: 1200px) {
 
     .gallery-title {
