@@ -5,7 +5,7 @@
     /></a>
     <nav>
       <ul class="nav__links">
-        <li><a routerLink="/about">About Us</a></li>
+        <li><a routerLink="/about">Our Partners</a></li>
         <ng-container *ngIf="isLoggedIn">
         <li><a routerLink="/gallery">Gallery</a></li>
         <li><a routerLink="/contact">Contact Us</a></li>
@@ -14,7 +14,7 @@
         <li><a href="" (click)="authService.SignOut()">Logout</a></li>
       </ng-container>
       <li *ngIf="!isLoggedIn"><a routerLink="/login">Login</a></li>
-      <li *ngIf="!isLoggedIn"><a routerLink="/register">Our Partners</a></li>
+      <li *ngIf="!isLoggedIn"><a routerLink="/register">Register</a></li>
       </ul>
     </nav>
 <!--     <a *ngIf="!isLoggedIn"
@@ -22,10 +22,10 @@
       routerLink="/register"
       >Get started!</a
     > -->
-    <div class="togglebox" *ngIf="!isLoggedIn">
+    <div class="togglebox headerbox" *ngIf="!isLoggedIn">
       <a href="" class="plain">Client</a>
       <label class="switch">
-        <input type="checkbox">
+        <input type="checkbox" (click)="clientChange()">
         <span class="slider round"></span>
         <p>Business</p>
       </label>
@@ -48,10 +48,14 @@
   </ng-container>
   <li *ngIf="!isLoggedIn"><a routerLink="/login" (click)="menuToggle()" class="menu-active">Login</a></li>
   <li *ngIf="!isLoggedIn"><a routerLink="/register" (click)="menuToggle()" class="menu-active">Register</a></li>
-    <a
-      class="overlay-cta"
-      routerLink="/register"
-      >Get started!</a
-    >
+  <div class="togglebox" *ngIf="!isLoggedIn">
+    <a href="" class="plain">Client</a>
+    <label class="switch">
+      <input type="checkbox">
+      <span class="slider round"></span>
+      <p>Business</p>
+    </label>
+    <a href="" class="plain">Business</a>
+  </div>
   </div>
 </div>

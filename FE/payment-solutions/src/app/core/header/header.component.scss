@@ -359,7 +359,7 @@ input:checked + .slider:before {
 
 @media only screen and (max-width: 800px) {
   .nav__links,
-  .cta {
+  .cta, .headerbox {
     display: none;
   }
 
