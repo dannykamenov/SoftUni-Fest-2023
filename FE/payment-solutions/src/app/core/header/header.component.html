@@ -14,15 +14,23 @@
         <li><a href="" (click)="authService.SignOut()">Logout</a></li>
       </ng-container>
       <li *ngIf="!isLoggedIn"><a routerLink="/login">Login</a></li>
-      <li *ngIf="!isLoggedIn"><a routerLink="/register">Register</a></li>
+      <li *ngIf="!isLoggedIn"><a routerLink="/register">Our Partners</a></li>
       </ul>
     </nav>
-    <a
+<!--     <a *ngIf="!isLoggedIn"
       class="cta"
-      href="https://calendly.com/elteck/30min?primary_color=fb804d"
-      target="_blank"
-      >Get a free quote!</a
-    >
+      routerLink="/register"
+      >Get started!</a
+    > -->
+    <div class="togglebox" *ngIf="!isLoggedIn">
+      <a href="" class="plain">Client</a>
+      <label class="switch">
+        <input type="checkbox">
+        <span class="slider round"></span>
+        <p>Business</p>
+      </label>
+      <a href="" class="plain">Business</a>
+    </div>
     <p class="menu cta" (click)="menuToggle()" >Menu</p>
   </div>
 </header>
@@ -42,9 +50,8 @@
   <li *ngIf="!isLoggedIn"><a routerLink="/register" (click)="menuToggle()" class="menu-active">Register</a></li>
     <a
       class="overlay-cta"
-      href="https://calendly.com/elteck/30min?primary_color=fb804d"
-      target="_blank"
-      >Get a free quote!</a
+      routerLink="/register"
+      >Get started!</a
     >
   </div>
 </div>
