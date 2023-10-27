@@ -46,10 +46,7 @@ export class MyReviewsComponent {
       const agree = confirm('Are you sure you want to delete this review?');
       if(agree) {
         this.api.deleteReview(id).subscribe((res) => {
-          //refresh page
-          this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
-            this.router.navigate(['/reviews']);
-          });
+          this.router.navigate(['/'])
         });
       } else {
         return;

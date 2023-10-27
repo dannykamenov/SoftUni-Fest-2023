@@ -33,7 +33,6 @@ export class MyProfileComponent {
 
   updateProfile(name: any) {
     const auth = getAuth();
-    console.log(auth)
 
 /*     if (this.file) {
       const storageRef = ref(
@@ -67,7 +66,13 @@ export class MyProfileComponent {
             displayName: name ? name : auth.currentUser?.displayName,
             photoURL: downloadURL,
           });
-
+          const review: any = {
+            uid: auth.currentUser?.uid,
+            name: name ? name : auth.currentUser?.displayName,
+            photoURL: downloadURL
+          }
+          this.api.updateUserInfo(review).subscribe((res) => {
+          });
         });
       });
     }
@@ -80,11 +85,11 @@ export class MyProfileComponent {
       const uid: string | undefined = auth.currentUser?.uid;
       const review: any = {
         uid: uid,
-        username: name,
+        name: name,
       }
       this.api.updateUserInfo(review).subscribe((res) => {
       });
-    } 
+    }
 
     this.downloadUrlLink = null;
     this.isUpdating = false;

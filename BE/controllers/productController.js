@@ -13,7 +13,6 @@ function uploadProduct(req, res) {
 
 function getProducts(req, res) {
     const uid = req.query.uid;
-    console.log(uid)
     Product.find({ uid })
         .sort({ date: -1 })
         .then(products => {
@@ -35,8 +34,48 @@ function getProductById(req, res) {
         })
 }
 
+async function editProduct(req, res) {
+    const id = req.params.id;
+    const { title, description, price } = req.body;
+    try {
+        const product = await Product.findByIdAndUpdate(
+            id,
+            { title, description, price },
+        );
+        res.status(201).json(product);
+    } catch (err) {
+        res.status(500).json({ error: err });
+    }
+}
+
+async function updateUser(req, res) {
+    const { uid, name, photoURL } = req.body;
+    try {
+        const product = await Product.updateMany(
+            { uid },
+            { user: name, photoURL },
+        );
+        res.status(201).json(product);
+    } catch (err) {
+        res.status(500).json({ error: err });
+    }
+}
+
+async function deleteProduct(req, res) {
+    const id = req.params.id;
+    try {
+        const product = await Product.findByIdAndDelete(id);
+        res.status(201).json(product);
+    } catch (err) {
+        res.status(500).json({ error: err });
+    }
+}
+
 module.exports = {
     uploadProduct,
     getProducts,
-    getProductById
+    getProductById,
+    editProduct,
+    updateUser,
+    deleteProduct
 }

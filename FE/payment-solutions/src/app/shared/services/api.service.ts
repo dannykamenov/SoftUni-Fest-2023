@@ -29,7 +29,8 @@ export class ApiService {
   }
 
   updateUserInfo(review: any) {
-    return this.http.post<Product>('https://elteck-production-server.onrender.com/api/update', review);
+    console.log(review);
+    return this.http.post<any>('http://localhost:3000/api/update', review);
   }
 
   getAverageRating() {
@@ -41,14 +42,14 @@ export class ApiService {
   }
 
   deleteReview(_id: string) {
-    return this.http.delete<getReview[]>(`https://elteck-production-server.onrender.com/api/reviews/${_id}`);
+    return this.http.delete<getReview[]>(`http://localhost:3000/api/product/${_id}`);
   }
 
   getProduct(id: string) {
     return this.http.get<Product>(`http://localhost:3000/api/product/${id}`);
   } 
 
-  updateReview(review: any) {
-    return this.http.put<Product>(`https://elteck-production-server.onrender.com/api/reviews/${review.id}`, review);
+  editProduct(id: string, product: any) {
+    return this.http.put<Product>(`http://localhost:3000/api/product/${id}`, product);
   }
 }
