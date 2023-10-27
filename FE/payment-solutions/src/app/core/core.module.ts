@@ -3,7 +3,6 @@ import { CommonModule } from '@angular/common';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { HomeComponent } from './home/home.component';
-import { InfographComponent } from './infograph/infograph.component';
 import { RouterModule } from '@angular/router';
 
 
@@ -13,7 +12,6 @@ import { RouterModule } from '@angular/router';
     HeaderComponent,
     FooterComponent,
     HomeComponent,
-    InfographComponent
   ],
   imports: [
     CommonModule,
@@ -23,7 +21,6 @@ import { RouterModule } from '@angular/router';
     HeaderComponent,
     FooterComponent,
     HomeComponent,
-    InfographComponent
   ]
 })
 export class CoreModule { }
