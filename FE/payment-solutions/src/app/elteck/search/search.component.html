@@ -1,5 +1,5 @@
 <main>
-    <h1 class="gallery-title">MARKETPLACE</h1>
+    <h1 class="gallery-title">BROWSE MERCHANTS</h1>
     <section class="gallery-section">
         <div class="gallery-container">
             <div class="box">
@@ -14,8 +14,8 @@
                 </div>
             </ng-container>
             <ng-container *ngIf="isNotLoading">
-                <ng-container *ngFor="let imageUrl of imageUrls$ | async">
-                    <img [src]="imageUrl" alt="Image">
+                <ng-container *ngFor="let merchant of merchants">
+                    <img [src]="merchant.photoURL" alt="Image">
                 </ng-container>
             </ng-container>
         </div>

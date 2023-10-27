@@ -71,11 +71,26 @@ async function deleteProduct(req, res) {
     }
 }
 
+async function getMerchants(req, res) {
+    try {
+        const merchants = await Product.find().distinct('user');
+        let products = [];
+        for(let merchant of merchants) {
+            const product = await Product.findOne({ user: merchant });
+            products.push(product);
+        }
+        res.status(200).json(products);
+    } catch (err) {
+        res.status(500).json({ error: err });
+    }
+}
+
 module.exports = {
     uploadProduct,
     getProducts,
     getProductById,
     editProduct,
     updateUser,
-    deleteProduct
+    deleteProduct,
+    getMerchants
 }

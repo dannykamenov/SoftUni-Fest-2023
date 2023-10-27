@@ -52,4 +52,8 @@ export class ApiService {
   editProduct(id: string, product: any) {
     return this.http.put<Product>(`http://localhost:3000/api/product/${id}`, product);
   }
+
+  getMerchants() {
+    return this.http.get<any>('http://localhost:3000/api/merchants');
+  }
 }
