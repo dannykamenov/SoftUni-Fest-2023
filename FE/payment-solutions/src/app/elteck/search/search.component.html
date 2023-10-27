@@ -23,7 +23,7 @@
         </ng-container>
         <ng-container *ngIf="isNotLoading">
           <ng-container *ngFor="let merchant of merchants">
-            <div class="image-container" [attr.data-text]="merchant.user" routerLink="/merchant/{{merchant._id}}">
+            <div class="image-container" [attr.data-text]="merchant.user" routerLink="/merchant/{{merchant.uid}}">
                 <img [src]="merchant.photoURL" alt="Image"/>
             </div>
           </ng-container>

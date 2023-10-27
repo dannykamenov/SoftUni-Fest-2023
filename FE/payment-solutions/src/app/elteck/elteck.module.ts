@@ -10,6 +10,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { EditReviewComponent } from './edit-review/edit-review.component';
 import { SearchComponent } from './search/search.component';
+import { MerchantPageComponent } from './merchant-page/merchant-page.component';
 
 
 
@@ -21,7 +22,8 @@ import { SearchComponent } from './search/search.component';
     MyReviewsComponent,
     NotFoundComponent,
     EditReviewComponent,
-    SearchComponent
+    SearchComponent,
+    MerchantPageComponent
   ],
   imports: [
     FormsModule,
@@ -35,7 +37,8 @@ import { SearchComponent } from './search/search.component';
     ReviewPageComponent,
     PostReviewComponent,
     MyReviewsComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    MerchantPageComponent,
   ]
 })
 export class ElteckModule { }

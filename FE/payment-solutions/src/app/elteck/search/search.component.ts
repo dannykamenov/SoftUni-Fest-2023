@@ -19,7 +19,6 @@ export class SearchComponent {
     this.api.getMerchants().subscribe((res) => {
       this.isNotLoading = true;
       this.merchants = res;
-      console.log(this.merchants);
       setTimeout(() => {this.isLoading = false}, 1000);
     });
   }

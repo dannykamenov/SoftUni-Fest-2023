@@ -18,6 +18,7 @@ import { Title } from '@angular/platform-browser';
 import { NotFoundComponent } from './elteck/not-found/not-found.component';
 import { EditReviewComponent } from './elteck/edit-review/edit-review.component';
 import { SearchComponent } from './elteck/search/search.component';
+import { MerchantPageComponent } from './elteck/merchant-page/merchant-page.component';
 
 const routes: Routes = [
   {path: '', pathMatch: 'full', component: HomeComponent, data: {title: 'Home'}},
@@ -35,6 +36,7 @@ const routes: Routes = [
   {path: 'not-found', component: NotFoundComponent, data: {title: 'Not Found'}},
   {path: 'edit-review/:id', component: EditReviewComponent, data: {title: 'Edit Review'}, canActivate: [AuthGuard]},
   {path: 'search', component: SearchComponent, data: {title: 'Search'}, canActivate: [AuthGuard]},
+  {path: 'merchant/:id', component: MerchantPageComponent, data: {title: 'Merchant'}, canActivate: [AuthGuard]},
   {path: '**', redirectTo: 'not-found', data: {title: 'Not Found'}},
   
 ];

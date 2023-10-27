@@ -100,6 +100,16 @@ async function searchMerchant(req, res) {
     }
 }
 
+async function getMerchantById(req, res) {
+    const id = req.params.id;
+    try {
+        const merchantAllProducts = await Product.find({ uid: id });
+        res.status(200).json(merchantAllProducts);
+    } catch (err) {
+        res.status(500).json({ error: err });
+    }
+}
+
 module.exports = {
     uploadProduct,
     getProducts,
@@ -108,5 +118,6 @@ module.exports = {
     updateUser,
     deleteProduct,
     getMerchants,
-    searchMerchant
+    searchMerchant,
+    getMerchantById
 }
