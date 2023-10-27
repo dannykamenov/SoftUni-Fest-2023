@@ -1,4 +1,18 @@
 <main>
-  <div *ngIf="!isToggled"></div>
-  <div *ngIf="isToggled"></div>
+  <div *ngIf="!isToggled" class="maindiv">
+    <section class="landingpage">
+      <img class="mainimg" src="../../../assets/HomeClient.png" alt="">
+      <h2 class="headertitle">Find the solution to your problem. <br> Join us now!</h2>
+      <h3 class="description">Browse freely through our partners's products <br> and <br> find the perfect solution for you!</h3>
+      <a class="register-button" routerLink="/register">Get Started!</a>
+    </section>
+  </div>
+  <div *ngIf="isToggled" class="maindiv">
+    <section class="landingpage">
+      <img class="mainimg" src="../../../assets/HomeBusiness.png" alt="">
+      <h2 class="headertitle">Connect globally, get paid locally!<br> Join us now!</h2>
+      <h3 class="description">Join over XXX+ other businesses <br> and <br> scale to an unimaginable level!</h3>
+      <a class="register-button" routerLink="/register">Get Started!</a>
+    </section>
+  </div>  
 </main>
