@@ -5,6 +5,10 @@ main {
     overflow-x: hidden;
 }
 
+h2,p,h1 {
+    font-family: "Montserrat", sans-serif;
+}
+
 .gallery-title {
     font-family: "Montserrat", sans-serif;
     font-weight: 900;
@@ -22,18 +26,21 @@ main {
     background-color: #A7AFBA;
     height: 100%;
     width: 100%;
+    justify-content: space-between;
 }
 
 .gallery-container {
     width: 100%;
     margin: 0 auto;
     margin: 0px 20px;
+    margin-left: 18%;
     height: 100%;
     display: flex;
     overflow: hidden;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: flex-start;
+    word-wrap: normal;
 }
 
 .gallery-container img {
@@ -44,6 +51,16 @@ main {
     object-fit: cover;
     border: black 5px solid;
 
+}
+
+.info {
+    margin-left: 5%;
+    word-wrap: normal;
+}
+
+.date {
+    word-wrap: normal;
+    font-size: 20px;
 }
 
 .gallery-container > .last-image {
