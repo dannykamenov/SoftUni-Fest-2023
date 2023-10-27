@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { getAuth } from 'firebase/auth';
 import { ApiService } from 'src/app/shared/services/api.service';
-import { getReview } from 'src/app/shared/services/getReview';
+import { getProduct } from 'src/app/shared/services/getProduct';
 
 @Component({
   selector: 'app-review-page',
@@ -12,13 +12,15 @@ import { getReview } from 'src/app/shared/services/getReview';
 export class ReviewPageComponent {
   isLoading = true;
   isNotLoading = false;
-  reviews: undefined | getReview[];
+  reviews: undefined | getProduct[];
   stars: undefined | number[] = [1, 2, 3, 4, 5];
   currentUserId: string | undefined;
   noReviews = false;
 
     constructor(private api: ApiService, private router: Router) { 
-      this.api.getReviews().subscribe((res) => {
+      const auth = getAuth();
+
+      this.api.getProducts(auth.currentUser.uid).subscribe((res) => {
         this.reviews = res;
         this.isNotLoading = true;
         setTimeout(() => {this.isLoading = false}, 1000);

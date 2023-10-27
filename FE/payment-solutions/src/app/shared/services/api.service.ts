@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Product } from './review';
 import { getReview } from './getReview';
 import { Observable, catchError, map, throwError } from 'rxjs';
+import { getProduct } from './getProduct';
 
 @Injectable({
   providedIn: 'root'
@@ -19,8 +20,8 @@ export class ApiService {
     )
   }
 
-  getReviews() {
-    return this.http.get<getReview[]>('https://elteck-production-server.onrender.com/api/reviews');
+  getProducts(uid: string) {
+    return this.http.get<getProduct[]>('http://localhost:3000/api/get-products', {params: {uid: uid}});
   }
 
   getLatestReviews() {

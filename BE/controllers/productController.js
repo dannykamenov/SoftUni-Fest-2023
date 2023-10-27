@@ -11,7 +11,12 @@ function uploadProduct(req, res) {
         })
 }
 
+function getProducts(req, res) {
+    const uid = req.params.uid;
+}
+
 
 module.exports = {
     uploadProduct,
+    getProducts
 }

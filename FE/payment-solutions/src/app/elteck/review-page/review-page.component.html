@@ -16,26 +16,18 @@
             <i class="fa-solid fa-quote-left" style="color: #000000"></i>
             <ng-container *ngIf="ownerChecker(review.uid)">
               <div class="btns">
-                <a  *ngIf="!review.isEdited" class="btn btnPrimary" routerLink="/edit-review/{{ review._id }}">Edit</a>
+                <a  class="btn btnPrimary" routerLink="/edit-review/{{ review._id }}">Edit</a>
                 <a class="btn btnPrimary" (click)="deleteReview(review._id)">Delete</a>
               </div>
             </ng-container>
-            <p class="star-rating">
-              <ng-container *ngFor="let i of stars">
-                <i
-                  class="fa-solid fa-star"
-                  [ngClass]="{ active: i <= review.rating }"
-                ></i>
-              </ng-container>
-            </p>
             <h3 class="title">{{ review.title }}</h3>
             <p class="content">
-              {{ review.content }}
+              {{ review.description }}
             </p>
             <div class="user-info">
-              <img [src]="review.userimage" alt="" />
+              <img [src]="review.photoURL" alt="" />
               <div class="user-name">
-                <h3>{{ review.username }}</h3>
+                <h3>{{ review.user }}</h3>
               </div>
             </div>
           </div>        
