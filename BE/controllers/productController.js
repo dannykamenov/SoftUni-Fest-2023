@@ -12,7 +12,16 @@ function uploadProduct(req, res) {
 }
 
 function getProducts(req, res) {
-    const uid = req.params.uid;
+    const uid = req.query.uid;
+    console.log(uid)
+    Product.find({ uid })
+        .sort({ date: -1 })
+        .then(products => {
+            res.status(200).json(products);
+        })
+        .catch(err => {
+            res.status(500).json({ error: err });
+        })
 }
 
 

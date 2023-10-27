@@ -12,15 +12,15 @@ import { getProduct } from 'src/app/shared/services/getProduct';
 export class ReviewPageComponent {
   isLoading = true;
   isNotLoading = false;
-  reviews: undefined | getProduct[];
+  reviews: any;
   stars: undefined | number[] = [1, 2, 3, 4, 5];
   currentUserId: string | undefined;
   noReviews = false;
 
     constructor(private api: ApiService, private router: Router) { 
       const auth = getAuth();
-
-      this.api.getProducts(auth.currentUser.uid).subscribe((res) => {
+      console.log(auth.currentUser?.uid);
+      this.api.getProducts(auth.currentUser?.uid).subscribe((res) => {
         this.reviews = res;
         this.isNotLoading = true;
         setTimeout(() => {this.isLoading = false}, 1000);

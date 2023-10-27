@@ -20,8 +20,8 @@ export class ApiService {
     )
   }
 
-  getProducts(uid: string) {
-    return this.http.get<getProduct[]>('http://localhost:3000/api/get-products', {params: {uid: uid}});
+  getProducts(uid: string | undefined) {
+    return this.http.get<getProduct[]>(`http://localhost:3000/api/get-products?uid=${uid}`)
   }
 
   getLatestReviews() {
