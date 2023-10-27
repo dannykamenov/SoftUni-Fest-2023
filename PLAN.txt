@@ -1,0 +1,11 @@
+- Create home page, register, login
+- Make business interface
+- Make user interface
+- connect with firebase and set roles upon register
+- make add offer page
+- make search and find page
+- open business info page
+- open product info page
+- buy button
+- add crypto payments
+
