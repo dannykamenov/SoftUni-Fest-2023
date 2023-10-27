@@ -15,11 +15,12 @@ export class HomeComponent implements OnInit {
 
 
   isToggled: boolean;
+  userRole: boolean;
 
     constructor(private api: ApiService, private router: Router, private toggleService: ToggleService, private authService: AuthService) { 
-      const auth = getAuth();
-      console.log(auth.currentUser);
-      console.log(auth.currentUser?.tenantId);
+      if(localStorage.getItem('role')) {
+        this.userRole = true;
+      }
     }
   
   ngOnInit() {

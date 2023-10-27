@@ -15,11 +15,20 @@ export class HeaderComponent {
 
   @Output() isBusinessChange = new EventEmitter<boolean>();
 
+  roleUser: boolean;
+  roleBusiness: boolean;
+
   get isLoggedIn() {
     return this.authService.isLoggedIn;
   }
 
     constructor(public authService: AuthService, private toggleService: ToggleService) { 
+      if(localStorage.getItem('role') === 'user') {
+        this.roleUser = true;
+      }
+      if(localStorage.getItem('role') === 'business') {
+        this.roleBusiness = true;
+      }
     }
 
   menuToggle() {
