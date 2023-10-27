@@ -35,6 +35,11 @@ main {
     justify-content: center;
 }
 
+.image-container {
+    display: inline-block;
+    position: relative;
+    line-height: 0;
+}
 .gallery-container img {
     flex-basis: 30%;
     height: 360px;
@@ -42,7 +47,20 @@ main {
     margin: 15px 15px;
     object-fit: cover;
     border: black 5px solid;
+    filter: brightness(50%);
+}
 
+.image-container::before {
+    content: attr(data-text);
+    position: absolute;
+    top: 50%; 
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 24px;
+    font-weight: bold;
+    z-index: 1;
+    pointer-events: none;
 }
 
 .gallery-container > .last-image {
