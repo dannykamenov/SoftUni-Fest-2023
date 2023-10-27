@@ -27,10 +27,10 @@ const productSchema = new mongoose.Schema({
     uid: {
         type: String,
     },
-    imageUrl: {
+    photoURL: {
         type: String,
     },
-    createdAt: {
+    date: {
         type: String,
     },
 });
