@@ -39,6 +39,7 @@ main {
     display: inline-block;
     position: relative;
     line-height: 0;
+    margin-top: 15px;
 }
 .gallery-container img {
     flex-basis: 30%;
@@ -61,6 +62,15 @@ main {
     font-weight: bold;
     z-index: 1;
     pointer-events: none;
+}
+
+.image-container {
+    cursor: pointer;
+    transition: transform 0.2s;
+
+    &:hover {
+        transform: scale(1.05);
+    }
 }
 
 .gallery-container > .last-image {

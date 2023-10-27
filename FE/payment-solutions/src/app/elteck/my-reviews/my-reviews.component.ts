@@ -45,7 +45,7 @@ export class MyReviewsComponent {
     deleteReview(id: string) {
       const agree = confirm('Are you sure you want to delete this review?');
       if(agree) {
-        this.api.deleteReview(id).subscribe((res) => {
+        this.api.deleteProduct(id).subscribe((res) => {
         });
       } else {
         return;

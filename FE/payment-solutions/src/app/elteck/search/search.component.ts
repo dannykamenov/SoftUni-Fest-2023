@@ -26,6 +26,9 @@ export class SearchComponent {
 
   searchBox(searchInput: NgModel) {
     const searchTerm = searchInput.value;
+    this.api.searchMerchants(searchTerm).subscribe((res) => {
+      this.merchants = res;
+    });
     searchInput.reset();
   }
 }

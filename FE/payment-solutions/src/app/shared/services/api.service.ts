@@ -24,24 +24,16 @@ export class ApiService {
     return this.http.get<getProduct[]>(`http://localhost:3000/api/get-products?uid=${uid}`)
   }
 
-  getLatestReviews() {
-    return this.http.get<getReview[]>('https://elteck-production-server.onrender.com/api/latest?limit=3');
-  }
-
   updateUserInfo(review: any) {
     console.log(review);
     return this.http.post<any>('http://localhost:3000/api/update', review);
-  }
-
-  getAverageRating() {
-    return this.http.get<any>('https://elteck-production-server.onrender.com/api/average');
   }
 
   getMyReviews(uid: string | undefined) {
     return this.http.get<getReview[]>(`https://elteck-production-server.onrender.com/api/myreviews?uid=${uid}`);
   }
 
-  deleteReview(_id: string) {
+  deleteProduct(_id: string) {
     return this.http.delete<getReview[]>(`http://localhost:3000/api/product/${_id}`);
   }
 
@@ -55,5 +47,13 @@ export class ApiService {
 
   getMerchants() {
     return this.http.get<any>('http://localhost:3000/api/merchants');
+  }
+
+  getMerchant(id: string) {
+    return this.http.get<any>(`http://localhost:3000/api/merchant/${id}`);
+  }
+
+  searchMerchants(searchTerm: string) {
+    return this.http.get<any>(`http://localhost:3000/api/search?searchTerm=${searchTerm}`);
   }
 }

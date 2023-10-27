@@ -85,6 +85,21 @@ async function getMerchants(req, res) {
     }
 }
 
+async function searchMerchant(req, res) {
+    const search = req.query.searchTerm;
+    try {
+        const merchants = await Product.find({ user: { $regex: search, $options: 'i' } }).distinct('user');
+        let products = [];
+        for(let merchant of merchants) {
+            const product = await Product.findOne({ user: merchant });
+            products.push(product);
+        }
+        res.status(200).json(products);
+    } catch (err) {
+        res.status(500).json({ error: err });
+    }
+}
+
 module.exports = {
     uploadProduct,
     getProducts,
@@ -92,5 +107,6 @@ module.exports = {
     editProduct,
     updateUser,
     deleteProduct,
-    getMerchants
+    getMerchants,
+    searchMerchant
 }
