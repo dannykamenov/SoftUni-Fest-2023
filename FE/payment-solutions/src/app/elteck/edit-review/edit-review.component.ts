@@ -15,8 +15,9 @@ export class EditReviewComponent {
   error: string = '';
   getTitle: string = '';
   getContent: string = '';
+  getPrice: number = 0;
 
-  review: Product = {
+  product: Product = {
     title: '',
     description: '',
     user: '',
@@ -29,16 +30,18 @@ export class EditReviewComponent {
 
 
   constructor(private api: ApiService, public router: Router) { 
-    this.api.getReview(this.router.url.split('/')[2]).subscribe((data: Product) => {
-      this.review = data;
-      this.getTitle = this.review.title;
-      this.getContent = this.review.description;
+    this.api.getProduct(this.router.url.split('/')[2]).subscribe((data: Product) => {
+      this.product = data;
+      console.log(this.product);
+      this.getTitle = this.product.title;
+      this.getContent = this.product.description;
+      this.getPrice = this.product.price;
     })
   }
 
 
 
-  editReview(title: string, content: string) {
+  editReview(title: string, content: string, price: number) {
   }
 
 }

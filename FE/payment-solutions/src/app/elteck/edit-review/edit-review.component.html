@@ -34,10 +34,6 @@
                 <div class="authBlock">
                   <form #form="ngForm">
                   <div class="formGroup">
-
-                    
-                  </div>
-                  <div class="formGroup">
                     <input
                         type="text"
                       class="formControl"
@@ -52,6 +48,24 @@
                     <ng-container *ngIf="title.touched">
                       <p class="error" *ngIf="title.errors?.['required']">Title is required!</p>
                       <p class="error" *ngIf="title.errors?.['maxlength']">Title cannot exceed 50 characters!</p>
+                    </ng-container>
+                    
+                  </div>
+                  <div class="formGroup">
+                    <input
+                        type="number"
+                      class="formControl"
+                      placeholder="Price"
+                      required
+                      #price="ngModel"
+                      ngModel
+                      maxlength="50"
+                      name="price"
+                      [(ngModel)]="getPrice"
+                    />
+                    <ng-container *ngIf="price.touched">
+                      <p class="error" *ngIf="price.errors?.['required']">Price is required!</p>
+                      <p class="error" *ngIf="price.errors?.['maxlength']">Price must be at least $1!</p>
                     </ng-container>
                     
                   </div>
@@ -78,7 +92,7 @@
                       class="btn btnPrimary"
                       value="Edit Review!"
                       [disabled]="form.invalid"
-                      (click)="editReview(title.value, review.value)"
+                      (click)="editReview(title.value, review.value, price.value)"
                     />
                   </div>
                   <p class="error" *ngIf="error">{{error}}</p>

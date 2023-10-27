@@ -24,8 +24,19 @@ function getProducts(req, res) {
         })
 }
 
+function getProductById(req, res) {
+    const id = req.params.id;
+    Product.findById(id)
+        .then(product => {
+            res.status(200).json(product);
+        })
+        .catch(err => {
+            res.status(500).json({ error: err });
+        })
+}
 
 module.exports = {
     uploadProduct,
-    getProducts
+    getProducts,
+    getProductById
 }

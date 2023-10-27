@@ -44,8 +44,8 @@ export class ApiService {
     return this.http.delete<getReview[]>(`https://elteck-production-server.onrender.com/api/reviews/${_id}`);
   }
 
-  getReview(id: string) {
-    return this.http.get<Product>(`https://elteck-production-server.onrender.com/api/reviews/${id}`);
+  getProduct(id: string) {
+    return this.http.get<Product>(`http://localhost:3000/api/product/${id}`);
   } 
 
   updateReview(review: any) {
