@@ -12,7 +12,7 @@ export class ApiService {
   constructor(private http: HttpClient) { }
 
   addProduct(product: Product) {
-    return this.http.post<Product>('https://elteck-production-server.onrender.com/api/upload-product', product).pipe(
+    return this.http.post<Product>('http://localhost:3000/api/upload-product', product).pipe(
       catchError((error: any) => {
         return throwError(error);
       })
