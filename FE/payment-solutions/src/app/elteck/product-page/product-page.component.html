@@ -42,9 +42,11 @@
                                     </div>
                                 
                               
-                                    <button type="submit" (click)="pay()">PAY ${{price}}</button>
+                                    <button type="submit" (click)="pay()" *ngIf="!isSuccess">PAY ${{price}}</button>
                                     <p class="error" *ngIf="paymentError">{{paymentError}}</p>
-                                    <p class="cancel" (click)="closeCreditPayment()">Cancel</p>
+                                    <p class="cancel" (click)="closeCreditPayment()" *ngIf="!isSuccess">Cancel</p>
+                                    <p class="success" *ngIf="isSuccess">Payment successful! The merchant will be in touch soon!</p>
+                                    <p class="cancel" (click)="closeCreditPayment()" *ngIf="isSuccess">Go Back!</p>
                                 </div>
                             </form>
                         </div>

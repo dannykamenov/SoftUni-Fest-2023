@@ -50,6 +50,7 @@ export class ProductPageComponent {
   productInfo: any;
   showPaymentForm: boolean = false;
   paymentError: string = '';
+  isSuccess: boolean = false;
 
   @ViewChild(StripeCardComponent) card: StripeCardComponent;
 
@@ -101,7 +102,7 @@ export class ProductPageComponent {
           } else {
             console.log(result.paymentIntent.status);
             if (result.paymentIntent.status === 'succeeded') {
-              // Show a success message to your customer
+              this.isSuccess = true;
             }
           }
         });
