@@ -1,8 +1,8 @@
 const Product = require('../models/productModel');
 
 function uploadProduct(req, res) {
-    const { title, description, price, user, email, uid, photoURL, date } = req.body;
-    Product.create({ title, description, price, user, email, uid, photoURL, date })
+    const { title, description, price, user, email, uid, photoURL, date, productPhoto } = req.body;
+    Product.create({ title, description, price, user, email, uid, photoURL, date, productPhoto })
         .then(product => {
             res.status(201).json(product);
         })

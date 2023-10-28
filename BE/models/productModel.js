@@ -33,6 +33,9 @@ const productSchema = new mongoose.Schema({
     date: {
         type: String,
     },
+    productPhoto: {
+        type: String,
+    },
 });
 
 module.exports = mongoose.model('Product', productSchema);

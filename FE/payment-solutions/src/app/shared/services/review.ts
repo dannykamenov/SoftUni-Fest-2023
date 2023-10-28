@@ -7,4 +7,5 @@ export interface Product {
     uid: string;
     price: number; 
     photoURL?: string;
+    productPhoto?: string;
 }
