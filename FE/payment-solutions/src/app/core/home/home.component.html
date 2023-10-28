@@ -5,7 +5,7 @@
       <h2 class="headertitle">Find the solution to your problem. <br> Join us now!</h2>
       <h3 class="description">Browse freely through our partners's products <br> and <br> find the perfect solution for you!</h3>
       <a class="register-button" routerLink="/register" *ngIf="!userRole">Get Started!</a>
-      <a class="register-button" routerLink="/register" *ngIf="userRole">Start Browsing!</a>
+      <a class="register-button" routerLink="/search" *ngIf="userRole">Start Browsing!</a>
     </section>
   </div>
   <div *ngIf="isToggled" class="maindiv">
