@@ -19,11 +19,11 @@
                     <div class="payments">
                         <h2 class="date">Pay with:</h2>
                         <div class="with-card">
-                            <button (click)="showCardPayment()"><i class="fa-regular fa-credit-card" style="color: #ffffff;"></i>Credit/Debit Card</button>
+                            <button (click)="showCardPayment()" class="cc"><i class="fa-regular fa-credit-card" style="color: #ffffff;"></i>Credit/Debit Card</button>
                         </div>
-                        <h2 class="date">Or</h2>
+                        <h2 class="date" style="margin-top: 5px;">Or</h2>
                         <div class="with-crypto">
-                            <button  (click)="redirectToCoinbase(productInfo)"><i class="fa-brands fa-bitcoin" style="color: #0ee00b;"></i>Crypto via Coinbase</button>
+                            <button  (click)="redirectToCoinbase(productInfo)" class="cc"><i class="fa-brands fa-bitcoin" style="color: #EF8E19;"></i>Crypto via Coinbase</button>
                         </div>
                         <div class="card-payment" *ngIf="showPaymentForm">
                             <form class="checkout-form" [formGroup]="paymentForm">
