@@ -1,19 +1,15 @@
 import { NgModule } from '@angular/core';
 import { ActivatedRoute, NavigationEnd, PreloadAllModules, Router, RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './core/home/home.component';
-import { AboutComponent } from './info/about/about.component';
-import { ContactComponent } from './info/contact/contact.component';
 import { LoginComponent } from './auth/login/login.component';
 import { RegisterComponent } from './auth/register/register.component';
 import { ForgotPasswordComponent } from './auth/forgot-password/forgot-password.component';
 import { VerifyEmailComponent } from './auth/verify-email/verify-email.component';
 import { AuthGuard } from './shared/guard/auth.guard';
 import { MyProfileComponent } from './auth/my-profile/my-profile.component';
-import { GalleryComponent } from './elteck/gallery/gallery.component';
 import { AuthGuard2 } from './shared/guard/verified.guard'
 import { ReviewPageComponent } from './elteck/review-page/review-page.component';
 import { PostReviewComponent } from './elteck/post-review/post-review.component';
-import { MyReviewsComponent } from './elteck/my-reviews/my-reviews.component';
 import { Title } from '@angular/platform-browser';
 import { NotFoundComponent } from './elteck/not-found/not-found.component';
 import { EditReviewComponent } from './elteck/edit-review/edit-review.component';
@@ -30,7 +26,6 @@ const routes: Routes = [
   {path: 'verify-email', component: VerifyEmailComponent, data: {title: 'Verify Email'}, canActivate: [AuthGuard2]},
   {path: 'products', component: ReviewPageComponent, data: {title: 'Reviews'}, canActivate: [AuthGuard]},
   {path: 'create-product', component: PostReviewComponent, data: {title: 'Create Product'}, canActivate: [AuthGuard]},
-  {path: 'my-reviews', component: MyReviewsComponent, data: {title: 'My Reviews'}, canActivate: [AuthGuard]},
   {path: 'not-found', component: NotFoundComponent, data: {title: 'Not Found'}},
   {path: 'edit-product/:id', component: EditReviewComponent, data: {title: 'Edit Product'}, canActivate: [AuthGuard]},
   {path: 'search', component: SearchComponent, data: {title: 'Search'}, canActivate: [AuthGuard]},

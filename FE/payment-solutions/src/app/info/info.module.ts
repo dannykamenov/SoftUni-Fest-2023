@@ -1,7 +1,5 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { AboutComponent } from './about/about.component';
-import { ContactComponent } from './contact/contact.component';
 import { RouterModule } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
@@ -9,8 +7,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
-    AboutComponent,
-    ContactComponent
   ],
   imports: [
     ReactiveFormsModule,
@@ -19,8 +15,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     RouterModule,
   ],
   exports: [
-    AboutComponent,
-    ContactComponent
   ]
 })
 export class InfoModule { }

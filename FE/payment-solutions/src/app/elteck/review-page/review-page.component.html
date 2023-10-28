@@ -17,7 +17,7 @@
             <ng-container *ngIf="ownerChecker(review.uid)">
               <div class="btns">
                 <a  class="btn btnPrimary" routerLink="/edit-product/{{ review._id }}">Edit</a>
-                <a class="btn btnPrimary" (click)="deleteReview(review._id)">Delete</a>
+                <a class="btn btnPrimary" (click)="deleteMyProduct(review._id)">Delete</a>
               </div>
             </ng-container>
             <h3 class="title">{{ review.title }}</h3>

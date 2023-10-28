@@ -2,9 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ApiService } from 'src/app/shared/services/api.service';
 import { AuthService } from 'src/app/shared/services/auth.service';
-import { getReview } from 'src/app/shared/services/getReview';
 import { ToggleService } from 'src/app/shared/services/toggle.service';
-import { getAuth } from 'firebase/auth';
 
 @Component({
   selector: 'app-home',

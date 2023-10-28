@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Product } from './review';
-import { getReview } from './getReview';
 import { Observable, catchError, map, throwError } from 'rxjs';
 import { getProduct } from './getProduct';
 
@@ -29,12 +28,10 @@ export class ApiService {
     return this.http.post<any>('http://localhost:3000/api/update', review);
   }
 
-  getMyReviews(uid: string | undefined) {
-    return this.http.get<getReview[]>(`https://elteck-production-server.onrender.com/api/myreviews?uid=${uid}`);
-  }
+
 
   deleteProduct(_id: string) {
-    return this.http.delete<getReview[]>(`http://localhost:3000/api/product/${_id}`);
+    return this.http.delete<getProduct[]>(`http://localhost:3000/api/product/${_id}`);
   }
 
   getProduct(id: string) {
