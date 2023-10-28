@@ -12,6 +12,7 @@ import { EditReviewComponent } from './edit-review/edit-review.component';
 import { SearchComponent } from './search/search.component';
 import { MerchantPageComponent } from './merchant-page/merchant-page.component';
 import { ProductPageComponent } from './product-page/product-page.component';
+import { NgxStripeModule } from 'ngx-stripe';
 
 
 
@@ -28,8 +29,9 @@ import { ProductPageComponent } from './product-page/product-page.component';
     ProductPageComponent
   ],
   imports: [
-    FormsModule,
     ReactiveFormsModule,
+    FormsModule,
+    NgxStripeModule,
     CommonModule,
     SharedModule,
     RouterModule
