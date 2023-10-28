@@ -5,7 +5,7 @@
 - make add offer page - DONE
 - make search and find page - DONE
 - open business info page - DONE
-- open product info page
-- buy button
-- add crypto payments
+- open product info page - DONE
+- buy button - DONE
+- add crypto payments - DONE
 
