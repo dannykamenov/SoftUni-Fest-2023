@@ -116,10 +116,8 @@ async function paymentStripe(req, res) {
     const { amount } = req.body;
     try {
         const paymentIntent = await stripe.paymentIntents.create({
-            amount,
+            amount: amount * 100,
             currency: 'usd',
-            // Verify your integration in this guide by including this parameter
-            metadata: { integration_check: 'accept_a_payment' },
         });
         res.status(200).json(paymentIntent);
     } catch (err) {
