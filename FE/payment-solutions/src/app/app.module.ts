@@ -17,6 +17,7 @@ import { ElteckModule } from './elteck/elteck.module';
 import { FirebaseStorageService } from './shared/services/firebase-storage.service';
 import { HttpClientModule } from '@angular/common/http';
 import { InfoModule } from './info/info.module';
+import { NgxStripeModule } from 'ngx-stripe';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { InfoModule } from './info/info.module';
   ],
   imports: [
     BrowserModule,
+    NgxStripeModule.forRoot(environment.stripe.publicKey),
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireAuthModule,
     AngularFirestoreModule,

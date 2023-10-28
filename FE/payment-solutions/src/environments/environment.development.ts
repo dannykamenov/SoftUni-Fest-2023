@@ -10,4 +10,7 @@ export const environment = {
       measurementId: "G-DWVX51CJWT",
       databaseURL: "https://softuni-fest-2023-default-rtdb.europe-west1.firebasedatabase.app"
     },
+    stripe: {
+      publicKey: 'pk_test_51GvcWEEOFAKdfkEnTyD8Pp5mHkey4lg30esEaJcGQmOvXbEELBcdr2Xmk6UMtHZ2idQPO4SuSFXYR5wjpbgnjQh900BSBPNZUy'
+    }
 };
