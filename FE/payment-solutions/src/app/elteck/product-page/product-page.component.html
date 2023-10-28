@@ -17,25 +17,35 @@
                     <h2 class="date product-list"><strong>Description:</strong></h2>
                     <p class="product-cta"> {{productInfo.description}}</p>
                     <div class="payments">
-                        <form class="checkout-form" [formGroup]="paymentForm">
+                        <h2 class="date">Pay with:</h2>
+                        <div class="with-card">
+                            <a href=""><i class="fa-regular fa-credit-card" style="color: #ffffff;"></i>Credit/Debit Card</a>
+                        </div>
+                        <h2 class="date">Or</h2>
+                        <div class="with-crypto">
+                            <a href=""><i class="fa-brands fa-bitcoin" style="color: #0ee00b;"></i>Crypto via Coinbase</a>
+                        </div>
+                        <div class="card-payment" *ngIf="showPaymentForm">
+                            <form class="checkout-form" [formGroup]="paymentForm">
 
-                            <input type="text" formControlName="name" placeholder="Name"/>
-                            <input type="text" formControlName="email" placeholder="Email">
-                            <input type="number" formControlName="amount" placeholder="Amount"/>
-                           
-                            <div class="stripe-card" ngxStripeCardGroup [elementsOptions]="elementsOptions">
-                                <h4>Enter payment details</h4>
-                                <div class="stripe-element">
-                                  <ngx-stripe-card 
-                                    [options]="cardOptions"
-                                    [elementsOptions]="elementsOptions"
-                                  ></ngx-stripe-card>
+                                <input type="text" formControlName="name" placeholder="Name"/>
+                                <input type="text" formControlName="email" placeholder="Email">
+                                <input type="number" formControlName="amount" placeholder="Amount"/>
+                               
+                                <div class="stripe-card" ngxStripeCardGroup [elementsOptions]="elementsOptions">
+                                    <h4>Enter payment details</h4>
+                                    <div class="stripe-element">
+                                      <ngx-stripe-card 
+                                        [options]="cardOptions"
+                                        [elementsOptions]="elementsOptions"
+                                      ></ngx-stripe-card>
+                                    </div>
+                                
+                              
+                                    <button type="submit" (click)="pay()">Submit Payment</button>
                                 </div>
-                            
-                          
-                                <button type="submit" (click)="pay()">Submit Payment</button>
-                            </div>
-                          </form>
+                            </form>
+                        </div>
                     </div>
                 </div>
             </ng-container>

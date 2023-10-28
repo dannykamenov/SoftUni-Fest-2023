@@ -28,6 +28,7 @@ export class ProductPageComponent {
   isLoading = true;
   isNotLoading = false;
   productInfo: any;
+  showPaymentForm: boolean = false;
 
   @ViewChild(StripeCardComponent) card: StripeCardComponent;
 

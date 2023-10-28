@@ -1,4 +1,5 @@
-const { uploadProduct, getProducts, getProductById, editProduct, updateUser, deleteProduct, getMerchants, searchMerchant, getMerchantById, paymentStripe } = require('../controllers/productController');
+const { uploadProduct, getProducts, getProductById, editProduct, updateUser, deleteProduct, getMerchants, searchMerchant, getMerchantById } = require('../controllers/productController');
+const { paymentStripe } = require('../controllers/paymentController');
 
 
 const router = require('express').Router();
