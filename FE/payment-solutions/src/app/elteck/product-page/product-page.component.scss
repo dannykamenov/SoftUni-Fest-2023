@@ -227,6 +227,10 @@ i:hover {
         flex-basis: 43%;
         margin: 15px 5px;
     }
+
+    .card-payment {
+        left: 30%;
+    }
 }
 
 @media screen and (max-width: 800px) {
@@ -247,5 +251,18 @@ i:hover {
     .product-cta {
         width: 80%;
         font-size: 10px;
+    }
+
+    .card-payment {
+        left: 20%;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .card-payment {
+        left: 0;
+        width: 100%;
+        margin: 0 auto;
+        padding: 0;
     }
 }
