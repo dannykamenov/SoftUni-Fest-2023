@@ -42,7 +42,8 @@
                                     </div>
                                 
                               
-                                    <button type="submit" (click)="pay()">Submit Payment</button>
+                                    <button type="submit" (click)="pay()">PAY ${{price}}</button>
+                                    <p class="error" *ngIf="paymentError">{{paymentError}}</p>
                                     <p class="cancel" (click)="closeCreditPayment()">Cancel</p>
                                 </div>
                             </form>

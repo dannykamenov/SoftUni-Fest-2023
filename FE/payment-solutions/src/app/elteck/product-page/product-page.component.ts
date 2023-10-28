@@ -49,6 +49,7 @@ export class ProductPageComponent {
   isNotLoading = false;
   productInfo: any;
   showPaymentForm: boolean = false;
+  paymentError: string = '';
 
   @ViewChild(StripeCardComponent) card: StripeCardComponent;
 
@@ -88,6 +89,7 @@ export class ProductPageComponent {
                 card: this.card.element,
                 billing_details: {
                   name: this.paymentForm.get('name').value,
+                  email: this.paymentForm.get('email').value,                 
                 },
               },
             })
@@ -95,8 +97,7 @@ export class ProductPageComponent {
         )
         .subscribe((result) => {
           if (result.error) {
-            // Show error to your customer (e.g., insufficient funds)
-            console.log(result.error.message);
+            this.paymentError = result.error.message;
           } else {
             console.log(result.paymentIntent.status);
             if (result.paymentIntent.status === 'succeeded') {
