@@ -1,7 +1,7 @@
 <main>
   <h1 class="gallery-title">YOUR PRODUCTS</h1>
   <div class="whitespace">
-    <a class="add-btn cta" routerLink="/create-review" >ADD A PRODUCT</a>
+    <a class="add-btn cta" routerLink="/create-product" >ADD A PRODUCT</a>
   </div>
   <section class="gallery-section">
     <div class="gallery-container">
@@ -16,7 +16,7 @@
             <i class="fa-solid fa-quote-left" style="color: #000000"></i>
             <ng-container *ngIf="ownerChecker(review.uid)">
               <div class="btns">
-                <a  class="btn btnPrimary" routerLink="/edit-review/{{ review._id }}">Edit</a>
+                <a  class="btn btnPrimary" routerLink="/edit-product/{{ review._id }}">Edit</a>
                 <a class="btn btnPrimary" (click)="deleteReview(review._id)">Delete</a>
               </div>
             </ng-container>
