@@ -16,10 +16,10 @@
                     <h2 class="date"><strong>Email:</strong> {{merchantInfo.email}}</h2>
                     <h2 class="date product-list"><strong>Products:</strong></h2>
                     <ng-container *ngFor="let offer of merchantOffers">
-                        <p class="product-cta" routerLink="/product-info/{{offer._id}}" (mouseover)="showPreview()" (mouseout)="hidePreview()">{{offer.title}} <i class="fa-solid fa-share-from-square"></i></p>
-                        <div class="image-preview" *ngIf="isPreviewVisible">
+                        <p class="product-cta" routerLink="/product-info/{{offer._id}}" (mouseover)="showPreview(offer)" (mouseout)="hidePreview(offer)">{{offer.title}} <i class="fa-solid fa-share-from-square"></i></p>
+                        <div class="image-preview" *ngIf="offer.isPreviewVisible">
                             <img [src]="offer.productPhoto" alt="Image Preview">
-                          </div>
+                        </div>
                     </ng-container>
                     
                 </div>

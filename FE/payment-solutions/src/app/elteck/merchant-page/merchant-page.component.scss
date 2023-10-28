@@ -28,6 +28,7 @@ h1 {
   height: 100%;
   width: 100%;
   justify-content: space-between;
+  overflow: hidden;
 }
 
 .gallery-container {
@@ -51,12 +52,14 @@ h1 {
   margin: 15px 15px;
   object-fit: cover;
   border: black 5px solid;
+  overflow: hidden;
 }
 
 .info {
   margin-left: 5%;
   word-wrap: normal;
   text-align: center;
+  overflow: hidden;
 }
 
 .date {
@@ -108,8 +111,8 @@ i:hover {
 }
 
 .image-preview img {
-  max-width: 200px; /* Adjust as needed */
-  max-height: 200px; /* Adjust as needed */
+  max-width: 150px; /* Adjust as needed */
+  max-height: 150px; /* Adjust as needed */
 }
 
 @media screen and (max-width: 1200px) {
