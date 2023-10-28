@@ -24,7 +24,7 @@ const routes: Routes = [
   {path: 'register', component: RegisterComponent, data: {title: 'Register'}, canActivate: [AuthGuard2]},
   {path: 'forgot-password', component: ForgotPasswordComponent, data: {title: 'Forgot Password'}, canActivate: [AuthGuard2]},
   {path: 'verify-email', component: VerifyEmailComponent, data: {title: 'Verify Email'}, canActivate: [AuthGuard2]},
-  {path: 'products', component: ReviewPageComponent, data: {title: 'Reviews'}, canActivate: [AuthGuard]},
+  {path: 'products', component: ReviewPageComponent, data: {title: 'My Products'}, canActivate: [AuthGuard]},
   {path: 'create-product', component: PostReviewComponent, data: {title: 'Create Product'}, canActivate: [AuthGuard]},
   {path: 'not-found', component: NotFoundComponent, data: {title: 'Not Found'}},
   {path: 'edit-product/:id', component: EditReviewComponent, data: {title: 'Edit Product'}, canActivate: [AuthGuard]},

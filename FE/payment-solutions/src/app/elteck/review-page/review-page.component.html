@@ -13,7 +13,7 @@
       <ng-container *ngIf="isNotLoading">
         <ng-container *ngFor="let review of reviews">
           <div class="img">
-            <i class="fa-solid fa-quote-left" style="color: #000000"></i>
+            <i class="fa-solid fa-money-bill-trend-up" style="color: green;"></i>
             <ng-container *ngIf="ownerChecker(review.uid)">
               <div class="btns">
                 <a  class="btn btnPrimary" routerLink="/edit-product/{{ review._id }}">Edit</a>

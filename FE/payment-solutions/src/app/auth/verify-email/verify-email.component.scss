@@ -30,7 +30,7 @@ main {
   display: inline;
   border: black 2px solid;
   border-radius: 10px;
-  background-color: #fb804d;
+  background-color: #2196F3;
   box-shadow: 0 0 3px 3px black;
 }
 
@@ -100,6 +100,14 @@ input[type="submit"]:hover {
 .redirectToLogin {
   text-align: center;
   margin-top: 20px;
+}
+
+.redirect {
+  color: white;
+}
+
+.redirect:hover {
+  color: red;
 }
 @media screen and (max-height: 1000px) {
   .contact-us-section {

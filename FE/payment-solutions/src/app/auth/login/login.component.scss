@@ -30,7 +30,7 @@ main {
   display: inline;
   border: black 2px solid;
   border-radius: 10px;
-  background-color: #fb804d;
+  background-color: #2196F3;
   box-shadow: 0 0 3px 3px black;
 }
 
@@ -126,6 +126,14 @@ input[type="button"]:hover, input[type="submit"]:hover {
   font-size: 12px;
   font-style: italic;
   margin: 5px 0px;
+}
+
+.redirect {
+  color: white
+}
+
+.redirect:hover {
+  color: red;
 }
 
 @media screen and (max-height: 1000px) {
