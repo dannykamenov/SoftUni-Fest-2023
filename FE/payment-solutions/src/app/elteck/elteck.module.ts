@@ -41,6 +41,7 @@ import { ProductPageComponent } from './product-page/product-page.component';
     MyReviewsComponent,
     NotFoundComponent,
     MerchantPageComponent,
+    ProductPageComponent
   ]
 })
 export class ElteckModule { }

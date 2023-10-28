@@ -25,6 +25,13 @@ export class SearchComponent {
 
   searchBox(searchInput: NgModel) {
     const searchTerm = searchInput.value;
+    console.log(searchTerm);
+    if (searchTerm === '' || searchTerm === null) {
+      this.api.getMerchants().subscribe((res) => {
+        this.merchants = res;
+      });
+      return;
+    }
     this.api.searchMerchants(searchTerm).subscribe((res) => {
       this.merchants = res;
     });
