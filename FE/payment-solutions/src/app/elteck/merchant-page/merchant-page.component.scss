@@ -120,10 +120,26 @@ i:hover {
     font-size: 70px;
   }
 
-  .gallery-container img {
-    flex-basis: 43%;
-    margin: 15px 5px;
+  .gallery-container {
+    display: block;
+    margin: 0 auto;
+    text-align: center;
   }
+
+  .image-preview {
+    position: absolute;
+    left: 60%;
+    bottom: 15%;
+    border: 1px solid #ccc;
+    padding: 10px;
+    background-color: white;
+    z-index: 1000;
+  }
+
+  .info {
+    margin: 0 auto;
+  }
+
 }
 
 @media screen and (max-width: 800px) {
@@ -135,8 +151,4 @@ i:hover {
     margin: 0 auto;
   }
 
-  .gallery-container img {
-    flex-basis: 100%;
-    margin: 15px 15px;
-  }
 }
