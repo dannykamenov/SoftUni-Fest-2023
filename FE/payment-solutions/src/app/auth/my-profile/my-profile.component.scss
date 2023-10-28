@@ -28,10 +28,10 @@ main {
   left: 35%;
   width: 30%;
   display: inline;
-  border: black 2px solid;
+  border: white 2px solid;
   border-radius: 10px;
-  background-color: #fb804d;
-  box-shadow: 0 0 3px 3px black;
+  background-color: #2196F3;
+  box-shadow: 0 0 3px 3px white;
 }
 
 .contact-form {
@@ -159,7 +159,7 @@ textarea {
 }
 
 .update-profile:hover {
-    background-color: black;
+    background-color: green;
     color: white;
   }
 
@@ -167,8 +167,8 @@ textarea {
     display: inline-block;
     width: 60%;
     padding: 10px;
-    background-color: #4285f4;
-    color: white;
+    background-color: white;
+    color: black;
     border: none;
     border-radius: 4px;
     cursor: pointer;
@@ -179,8 +179,8 @@ textarea {
 }
 
 .save-profile:hover {
-    background-color: white;
-    color: #4285f4;
+    background-color: green;
+    color: white;
 }
 
 input[type="file"] {

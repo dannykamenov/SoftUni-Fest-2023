@@ -119,6 +119,7 @@
                       class="formControl"
                       placeholder="{{ user.displayName ? user.displayName : 'Set Username' }}"
                       #userDisplayName
+                      [disabled]="roleUser"
                     />
                 </div>
                 <div class="formGroup">

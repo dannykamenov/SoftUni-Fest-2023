@@ -18,9 +18,19 @@ import { Product } from 'src/app/shared/services/review';
 })
 export class MyProfileComponent {
   isUpdating: boolean = false;
-  constructor(public authService: AuthService, public storage: AngularFireStorage, public api: ApiService) {}
+  constructor(public authService: AuthService, public storage: AngularFireStorage, public api: ApiService) {
+    if(localStorage.getItem('role') === 'user') {
+      this.roleUser = true;
+    }
+    if(localStorage.getItem('role') === 'business') {
+      this.roleBusiness = true;
+    }
+  }
   public file: any;
   downloadUrlLink: any;
+  
+  roleUser: boolean;
+  roleBusiness: boolean;
 
   changeDisplay() {
     this.isUpdating = true;

@@ -7,6 +7,7 @@ import { Router } from '@angular/router';
 import { getAuth, updateProfile } from 'firebase/auth';
 import { ToggleService } from 'src/app/shared/services/toggle.service';
 import { AngularFireDatabase } from '@angular/fire/compat/database';
+import { fullNameValidator } from 'src/app/shared/validators/full-name-validator';
 
 @Component({
   selector: 'app-register',
@@ -77,6 +78,14 @@ export class RegisterComponent implements OnInit {
   ngOnInit() {
     this.toggleService.toggle$.subscribe(value => {
       this.isToggled = value;
+      const nameControl = this.form.get('name');
+      if(!this.isToggled) {
+        nameControl?.setValidators([Validators.required, Validators.minLength(4), fullNameValidator()]);
+      }else {
+        nameControl?.setValidators([Validators.required, Validators.minLength(4)]);
+      }
+
+      nameControl?.updateValueAndValidity();
     });
   }
 }

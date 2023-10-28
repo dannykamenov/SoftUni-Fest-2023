@@ -22,6 +22,7 @@
                     <ng-container *ngIf="form.get('name')?.touched">
                       <p class="error" *ngIf="form.get('name')?.errors?.['required']">Name is required!</p>
                       <p class="error" *ngIf="form.get('name')?.errors?.['minlength']">Name must be at least 4 characters long!</p>
+                      <p class="error" *ngIf="form.controls.name.hasError('fullNameRequired')">Name and Surname are required!</p>
                     </ng-container>
                     
                   </div>
