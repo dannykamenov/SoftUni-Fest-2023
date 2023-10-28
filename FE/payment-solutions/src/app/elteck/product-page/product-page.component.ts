@@ -1,8 +1,18 @@
 import { Component, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { ApiService } from 'src/app/shared/services/api.service';
-import { StripeCardNumberComponent, StripeService, StripeCardComponent, StripeCardExpiryComponent, StripeCardCvcComponent } from 'ngx-stripe';
-import {PaymentIntent, StripeCardElementOptions, StripeElementsOptions} from '@stripe/stripe-js'
+import {
+  StripeCardNumberComponent,
+  StripeService,
+  StripeCardComponent,
+  StripeCardExpiryComponent,
+  StripeCardCvcComponent,
+} from 'ngx-stripe';
+import {
+  PaymentIntent,
+  StripeCardElementOptions,
+  StripeElementsOptions,
+} from '@stripe/stripe-js';
 import { NgxStripeModule } from 'ngx-stripe';
 import { HttpClient } from '@angular/common/http';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
@@ -14,17 +24,22 @@ import { getAuth } from 'firebase/auth';
 @Component({
   selector: 'app-product-page',
   templateUrl: './product-page.component.html',
-  styleUrls: ['./product-page.component.scss']
+  styleUrls: ['./product-page.component.scss'],
 })
 export class ProductPageComponent {
-
-  constructor(private api: ApiService, private router: Router, private http: HttpClient, private fb: FormBuilder, private stripeService: StripeService) {
+  constructor(
+    private api: ApiService,
+    private router: Router,
+    private http: HttpClient,
+    private fb: FormBuilder,
+    private stripeService: StripeService
+  ) {
     this.api.getProduct(this.router.url.split('/')[2]).subscribe((res) => {
       this.productInfo = res;
       this.isLoading = false;
       this.isNotLoading = true;
     });
-   }
+  }
 
   isLoading = true;
   isNotLoading = false;
@@ -33,11 +48,11 @@ export class ProductPageComponent {
 
   @ViewChild(StripeCardComponent) card: StripeCardComponent;
 
-public elementsOptions: StripeElementsOptions = {
-  locale: 'en',
-};
+  public elementsOptions: StripeElementsOptions = {
+    locale: 'en',
+  };
 
-public cardOptions: StripeCardElementOptions = {
+  public cardOptions: StripeCardElementOptions = {
     style: {
       base: {
         fontWeight: 400,
@@ -52,16 +67,13 @@ public cardOptions: StripeCardElementOptions = {
     },
   };
 
-
-
   paymentForm: FormGroup = this.fb.group({
     name: ['', [Validators.required]],
     email: ['', [Validators.required]],
     amount: [[Validators.required, Validators.pattern(/d+/)]],
-});
+  });
 
-
-   pay(): void {
+  pay(): void {
     if (this.paymentForm.valid) {
       this.createPaymentIntent(this.paymentForm.get('amount').value)
         .pipe(
@@ -81,7 +93,7 @@ public cardOptions: StripeCardElementOptions = {
             // Show error to your customer (e.g., insufficient funds)
             console.log(result.error.message);
           } else {
-            console.log(result.paymentIntent.status)
+            console.log(result.paymentIntent.status);
             if (result.paymentIntent.status === 'succeeded') {
               // Show a success message to your customer
             }
@@ -92,29 +104,35 @@ public cardOptions: StripeCardElementOptions = {
     }
   }
 
-createPaymentIntent(amount: number): Observable<PaymentIntent> {
+  createPaymentIntent(amount: number): Observable<PaymentIntent> {
     return this.http.post<PaymentIntent>(
       `http://localhost:3000/api/create-payment-intent`,
       { amount }
     );
- }
+  }
 
- createCoinbaseCharge(product: any) {
-  const auth = getAuth();
-  const user = auth.currentUser;
-  console.log(product);
-  return this.http.post<any>(
-    `http://localhost:3000/api/create-coinbase-charge`,
-    {product}
-  );
- }
+  createCoinbaseCharge(product: any) {
+    const auth = getAuth();
+    const user = auth.currentUser;
+    console.log(product);
+    return this.http.post<any>(
+      `http://localhost:3000/api/create-coinbase-charge`,
+      { product, user }
+    );
+  }
 
- redirectToCoinbase(product: any) {
-  this.createCoinbaseCharge(product).subscribe((res) => {
-    console.log(res);
-    window.location.href = res.hosted_url;
-  });
-  // window.location.href = 'https://www.coinbase.com/checkout';
- }
-
+  redirectToCoinbase(product: any) {
+    this.createCoinbaseCharge(product).subscribe(
+      (res) => {
+        if (res && res.data && res.data.hosted_url) {
+          window.location.href = res.data.hosted_url;
+        } else {
+          console.log('Failed to generate Coinbase payment URL');
+        }
+      },
+      (error) => {
+        console.error('Error creating Coinbase charge:', error);
+      }
+    );
+  }
 }
