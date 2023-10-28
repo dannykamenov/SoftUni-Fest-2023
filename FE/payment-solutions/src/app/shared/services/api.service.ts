@@ -56,4 +56,6 @@ export class ApiService {
   searchMerchants(searchTerm: string) {
     return this.http.get<any>(`http://localhost:3000/api/search?searchTerm=${searchTerm}`);
   }
+
+  
 }

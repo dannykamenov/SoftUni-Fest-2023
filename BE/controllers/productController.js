@@ -1,4 +1,5 @@
 const Product = require('../models/productModel');
+const data = require('../mongodb');
 
 function uploadProduct(req, res) {
     const { title, description, price, user, email, uid, photoURL, date } = req.body;
@@ -110,6 +111,22 @@ async function getMerchantById(req, res) {
     }
 }
 
+async function paymentStripe(req, res) {
+    const stripe = require('stripe')(`${data.secretKey}`);
+    const { amount } = req.body;
+    try {
+        const paymentIntent = await stripe.paymentIntents.create({
+            amount,
+            currency: 'usd',
+            // Verify your integration in this guide by including this parameter
+            metadata: { integration_check: 'accept_a_payment' },
+        });
+        res.status(200).json(paymentIntent);
+    } catch (err) {
+        res.status(500).json({ error: err });
+    }
+}
+
 module.exports = {
     uploadProduct,
     getProducts,
@@ -119,5 +136,6 @@ module.exports = {
     deleteProduct,
     getMerchants,
     searchMerchant,
-    getMerchantById
+    getMerchantById,
+    paymentStripe
 }

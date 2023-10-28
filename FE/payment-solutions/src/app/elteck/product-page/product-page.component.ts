@@ -6,8 +6,9 @@ import {PaymentIntent, StripeCardElementOptions, StripeElementsOptions} from '@s
 import { NgxStripeModule } from 'ngx-stripe';
 import { HttpClient } from '@angular/common/http';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { switchMap } from 'rxjs';
+import { Observable, switchMap } from 'rxjs';
 import { ReactiveFormsModule } from '@angular/forms';
+import { secret } from 'src/environments/stripeSecret';
 
 @Component({
   selector: 'app-product-page',
@@ -62,7 +63,7 @@ public cardOptions: StripeCardElementOptions = {
     if (this.paymentForm.valid) {
       this.createPaymentIntent(this.paymentForm.get('amount').value)
         .pipe(
-          switchMap((pi) =>
+          switchMap((pi: any) =>
             this.stripeService.confirmCardPayment(pi.client_secret, {
               payment_method: {
                 card: this.card.element,
@@ -91,7 +92,7 @@ public cardOptions: StripeCardElementOptions = {
 
 createPaymentIntent(amount: number): Observable<PaymentIntent> {
     return this.http.post<PaymentIntent>(
-      `${env.apiUrl}/create-payment-intent`,
+      `http://localhost:3000/create-payment-intent`,
       { amount }
     );
  }
