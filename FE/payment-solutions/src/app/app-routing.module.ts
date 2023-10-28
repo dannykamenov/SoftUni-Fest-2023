@@ -23,14 +23,11 @@ import { ProductPageComponent } from './elteck/product-page/product-page.compone
 
 const routes: Routes = [
   {path: '', pathMatch: 'full', component: HomeComponent, data: {title: 'Home'}},
-  {path: 'about', component: AboutComponent, data: {title: 'About'}},
   {path: 'my-profile', component: MyProfileComponent, data: {title: 'My Profile'}, canActivate: [AuthGuard]},
-  {path: 'contact', component: ContactComponent, data: {title: 'Contact Us'}, canActivate: [AuthGuard]},
   {path: 'login', component: LoginComponent, data: {title: 'Login'}, canActivate: [AuthGuard2]},
   {path: 'register', component: RegisterComponent, data: {title: 'Register'}, canActivate: [AuthGuard2]},
   {path: 'forgot-password', component: ForgotPasswordComponent, data: {title: 'Forgot Password'}, canActivate: [AuthGuard2]},
   {path: 'verify-email', component: VerifyEmailComponent, data: {title: 'Verify Email'}, canActivate: [AuthGuard2]},
-  {path: 'gallery', component: GalleryComponent, data: {title: 'Gallery'}, canActivate: [AuthGuard]},
   {path: 'products', component: ReviewPageComponent, data: {title: 'Reviews'}, canActivate: [AuthGuard]},
   {path: 'create-review', component: PostReviewComponent, data: {title: 'Create Review'}, canActivate: [AuthGuard]},
   {path: 'my-reviews', component: MyReviewsComponent, data: {title: 'My Reviews'}, canActivate: [AuthGuard]},

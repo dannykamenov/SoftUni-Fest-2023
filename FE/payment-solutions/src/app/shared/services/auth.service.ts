@@ -41,6 +41,10 @@ export class AuthService {
           this.afAuth.authState.subscribe((user) => {
             if (user) {
               this.router.navigate(['/']);
+              //refresh page
+              setTimeout(() => {
+                window.location.reload();
+              }, 1000);
             }
           });
         }, 100);
@@ -93,8 +97,8 @@ export class AuthService {
     /* this.router.navigate(['/']); */
   }
   // Auth logic to run auth providers
-//  AuthLogin(provider: any) {
-/*     return this.afAuth
+  //  AuthLogin(provider: any) {
+  /*     return this.afAuth
       //.signInWithPopup(provider)
       .signInWithRedirect(provider)
       .then((result) => {
@@ -105,7 +109,7 @@ export class AuthService {
         window.alert(error);
       }); */
 
-/*      return this.afAuth.signInWithRedirect(provider)
+  /*      return this.afAuth.signInWithRedirect(provider)
       .then((result) => {
         this.router.navigate(['/']);
         this.afAuth.getRedirectResult()
@@ -131,12 +135,12 @@ export class AuthService {
       console.log(result);
       if (result.user) {
         const user = result.user;
-        this.SetUserData(user); 
+        this.SetUserData(user);
         setTimeout(() => {
           this.router.navigate(['/']);
         }, 1000);
       } else {
-        this.router.navigate(['/']); 
+        this.router.navigate(['/']);
       }
     } catch (error) {
       console.error(error);
@@ -149,10 +153,7 @@ export class AuthService {
 
   // Store user in localStorage
 
-
-
-  SetUserData(user: any) {;
-
+  SetUserData(user: any) {
     const userRef: AngularFirestoreDocument<any> = this.afs.doc(
       `users/${user.uid}`
     );
@@ -181,5 +182,4 @@ export class AuthService {
       this.router.navigate(['/']);
     });
   }
-
 }
