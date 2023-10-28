@@ -38,9 +38,13 @@ export class ProductPageComponent {
       this.productInfo = res;
       this.isLoading = false;
       this.isNotLoading = true;
+      this.price = res.price;
+      this.paymentForm.patchValue({
+        amount: this.price
+    });
     });
   }
-
+  price: number = 0;
   isLoading = true;
   isNotLoading = false;
   productInfo: any;
@@ -54,23 +58,24 @@ export class ProductPageComponent {
 
   public cardOptions: StripeCardElementOptions = {
     style: {
-      base: {
-        fontWeight: 400,
-        fontFamily: 'Circular',
-        fontSize: '14px',
-        iconColor: '#666EE8',
-        color: '#002333',
-        '::placeholder': {
-          color: '#919191',
+        base: {
+            fontWeight: 500,          
+            fontFamily: 'Montserrat, sans-serif',
+            fontSize: '18px',          
+            iconColor: '#666EE8',
+            color: '#002333',        
+            '::placeholder': {
+                color: '#919191',
+                fontSize: '16px',        
+            },
         },
-      },
     },
-  };
+};
 
   paymentForm: FormGroup = this.fb.group({
     name: ['', [Validators.required]],
     email: ['', [Validators.required]],
-    amount: [[Validators.required, Validators.pattern(/d+/)]],
+    amount: [{ value: this.price, disabled: true }, [Validators.required]],
   });
 
   pay(): void {
@@ -134,5 +139,13 @@ export class ProductPageComponent {
         console.error('Error creating Coinbase charge:', error);
       }
     );
+  }
+
+  showCardPayment() {
+    this.showPaymentForm = true;
+  }
+
+  closeCreditPayment() {
+    this.showPaymentForm = false;
   }
 }

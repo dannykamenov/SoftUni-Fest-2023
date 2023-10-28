@@ -19,7 +19,7 @@
                     <div class="payments">
                         <h2 class="date">Pay with:</h2>
                         <div class="with-card">
-                            <button><i class="fa-regular fa-credit-card" style="color: #ffffff;"></i>Credit/Debit Card</button>
+                            <button (click)="showCardPayment()"><i class="fa-regular fa-credit-card" style="color: #ffffff;"></i>Credit/Debit Card</button>
                         </div>
                         <h2 class="date">Or</h2>
                         <div class="with-crypto">
@@ -28,9 +28,9 @@
                         <div class="card-payment" *ngIf="showPaymentForm">
                             <form class="checkout-form" [formGroup]="paymentForm">
 
-                                <input type="text" formControlName="name" placeholder="Name"/>
-                                <input type="text" formControlName="email" placeholder="Email">
-                                <input type="number" formControlName="amount" placeholder="Amount"/>
+                                <input type="text" formControlName="name" placeholder="Name"/><br>
+                                <input type="text" formControlName="email" placeholder="Email"><br>
+                                <input type="number" formControlName="amount" placeholder="Amount"/><br>
                                
                                 <div class="stripe-card" ngxStripeCardGroup [elementsOptions]="elementsOptions">
                                     <h4>Enter payment details</h4>
@@ -43,6 +43,7 @@
                                 
                               
                                     <button type="submit" (click)="pay()">Submit Payment</button>
+                                    <p class="cancel" (click)="closeCreditPayment()">Cancel</p>
                                 </div>
                             </form>
                         </div>

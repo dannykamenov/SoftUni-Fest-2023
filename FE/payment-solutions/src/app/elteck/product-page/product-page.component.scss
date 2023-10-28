@@ -99,6 +99,75 @@ i:hover {
     height: 35vh;
     overflow-y: hidden;
 }
+
+.card-payment {
+    position: absolute;
+    top: -50px;
+    left: 53%;
+    background-color: none;
+    z-index: 1;
+    display: block;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+.stripe-element {
+    display: block;
+}
+
+.checkout-form {
+    background-color: #f8f9fa;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    width: 120%;
+    margin: 0 auto;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.checkout-form input[type="text"],
+.checkout-form input[type="number"] {
+    width: 100%;
+    padding: 10px 15px;
+    border: 1px solid #dcdcdc;
+    border-radius: 4px;
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+
+.checkout-form button {
+    background-color: #007bff;
+    color: #ffffff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.checkout-form button:hover {
+    background-color: #0056b3;
+}
+
+.stripe-card {
+    background-color: #ffffff;
+    padding: 20px;
+    border: 1px solid #dcdcdc;
+    border-radius: 4px;
+}
+
+.stripe-element {
+    margin-bottom: 20px;
+}
+
+.cancel {
+    padding: 0px;
+    margin-top: 5px;
+    cursor: pointer;
+    color: #007bff;
+    text-decoration: underline;
+}
     
 @media screen and (max-width: 1200px) {
 
