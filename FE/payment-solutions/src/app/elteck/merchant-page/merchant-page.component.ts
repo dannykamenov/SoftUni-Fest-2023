@@ -13,6 +13,7 @@ export class MerchantPageComponent {
   merchantOffers: any;
   isLoading = true;
   isNotLoading = false;
+  isPreviewVisible = false;
 
   constructor(private api: ApiService, private router: Router) {
     this.api.getMerchant(this.router.url.split('/')[2]).subscribe((res) => {
@@ -22,6 +23,14 @@ export class MerchantPageComponent {
       this.isNotLoading = true;
     });
    }
+
+   showPreview(): void {
+    this.isPreviewVisible = true;
+  }
+
+  hidePreview(): void {
+    this.isPreviewVisible = false;
+  }
 
 
 }
