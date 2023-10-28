@@ -1,5 +1,5 @@
 const { uploadProduct, getProducts, getProductById, editProduct, updateUser, deleteProduct, getMerchants, searchMerchant, getMerchantById } = require('../controllers/productController');
-const { paymentStripe } = require('../controllers/paymentController');
+const { paymentStripe, paymentCoinbase } = require('../controllers/paymentController');
 
 
 const router = require('express').Router();
@@ -14,5 +14,6 @@ router.get('/merchants', getMerchants)
 router.get('/search', searchMerchant)
 router.get('/merchant/:id', getMerchantById)
 router.post('/create-payment-intent', paymentStripe)
+router.post('/create-coinbase-charge', paymentCoinbase)
 
 module.exports = router;

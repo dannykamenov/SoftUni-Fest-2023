@@ -9,6 +9,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Observable, switchMap } from 'rxjs';
 import { ReactiveFormsModule } from '@angular/forms';
 import { secret } from 'src/environments/stripeSecret';
+import { getAuth } from 'firebase/auth';
 
 @Component({
   selector: 'app-product-page',
@@ -96,6 +97,24 @@ createPaymentIntent(amount: number): Observable<PaymentIntent> {
       `http://localhost:3000/api/create-payment-intent`,
       { amount }
     );
+ }
+
+ createCoinbaseCharge(product: any) {
+  const auth = getAuth();
+  const user = auth.currentUser;
+  console.log(product);
+  return this.http.post<any>(
+    `http://localhost:3000/api/create-coinbase-charge`,
+    {product}
+  );
+ }
+
+ redirectToCoinbase(product: any) {
+  this.createCoinbaseCharge(product).subscribe((res) => {
+    console.log(res);
+    window.location.href = res.hosted_url;
+  });
+  // window.location.href = 'https://www.coinbase.com/checkout';
  }
 
 }

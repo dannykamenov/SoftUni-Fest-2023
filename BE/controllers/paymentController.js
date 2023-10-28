@@ -1,3 +1,6 @@
+const data = require('../mongodb');
+const axios = require('axios');
+
 async function paymentStripe(req, res) {
     const stripe = require('stripe')(`${data.secretKey}`);
     const { amount } = req.body;
@@ -12,7 +15,12 @@ async function paymentStripe(req, res) {
     }
 }
 
+async function paymentCoinbase(req, res) {
+    console.log('cunt');
+
+}
 
 module.exports = {
     paymentStripe,
+    paymentCoinbase
 }

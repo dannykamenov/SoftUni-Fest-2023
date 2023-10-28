@@ -1,5 +1,4 @@
 const Product = require('../models/productModel');
-const data = require('../mongodb');
 
 function uploadProduct(req, res) {
     const { title, description, price, user, email, uid, photoURL, date } = req.body;
