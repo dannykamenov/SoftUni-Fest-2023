@@ -51,7 +51,7 @@
   <div class="togglebox" *ngIf="!isLoggedIn">
     <a href="" class="plain">Client</a>
     <label class="switch">
-      <input type="checkbox">
+      <input type="checkbox" (click)="clientChange()">
       <span class="slider round"></span>
       <p>Business</p>
     </label>
