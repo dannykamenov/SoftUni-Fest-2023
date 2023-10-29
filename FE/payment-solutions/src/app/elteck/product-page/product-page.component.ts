@@ -103,6 +103,17 @@ export class ProductPageComponent {
             console.log(result.paymentIntent.status);
             if (result.paymentIntent.status === 'succeeded') {
               this.isSuccess = true;
+              const auth = getAuth();
+              const user = auth.currentUser;
+              const paymentDetails = {
+                user: user?.uid,
+                merchant: this.productInfo.uid,
+                productName: this.productInfo.title,
+                price: this.productInfo.price,
+                date: new Date().toLocaleString(),
+              }
+              this.api.paymentDetails(paymentDetails).subscribe((res) => {
+              });
             }
           }
         });

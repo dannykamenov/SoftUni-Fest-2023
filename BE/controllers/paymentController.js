@@ -1,5 +1,7 @@
 const data = require('../mongodb');
 const axios = require('axios');
+const Payment = require('../models/paymentModel');
+const mongoose = require('mongoose');
 
 async function paymentStripe(req, res) {
     const stripe = require('stripe')(`${data.secretKey}`);
@@ -51,7 +53,29 @@ async function paymentCoinbase(req, res) {
 
 }
 
+async function paymentDetails(req, res) {
+    const {user, merchant,price, productName, date} = req.body;
+    try {
+        const payment = await Payment.create({user, merchant, price, productName, date});
+        res.status(200).json(payment);
+    } catch(err) {
+        res.status(500).json({ error: err });
+    }
+}
+
+async function paymentDetailsGet(req, res) {
+    const {uid} = req.query;
+    try {
+        const payments = await Payment.find({merchant: uid});
+        res.status(200).json(payments);
+    } catch(err) {
+        res.status(500).json({ error: err });
+    }
+}
+
 module.exports = {
     paymentStripe,
-    paymentCoinbase
+    paymentCoinbase,
+    paymentDetails,
+    paymentDetailsGet
 }

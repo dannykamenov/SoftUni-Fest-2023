@@ -15,10 +15,10 @@ export class ReviewPageComponent {
   stars: undefined | number[] = [1, 2, 3, 4, 5];
   currentUserId: string | undefined;
   noReviews = false;
+  payments: any;
 
     constructor(private api: ApiService, private router: Router) { 
       const auth = getAuth();
-      console.log(auth.currentUser?.uid);
       this.api.getProducts(auth.currentUser?.uid).subscribe((res) => {
         this.reviews = res;
         this.isNotLoading = true;
@@ -28,6 +28,9 @@ export class ReviewPageComponent {
         if(this.reviews.length === 0) {
           this.noReviews = true;
         }
+      });
+      this.api.getPaymentDetails(auth.currentUser?.uid).subscribe((res) => {
+        this.payments = res;
       });
     }
 

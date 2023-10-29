@@ -35,6 +35,11 @@
         </ng-container>
       </ng-container>
     </div>
+    <h1 class="gallery-title">YOUR PAYMENTS</h1>
+    <ng-container *ngFor="let payment of payments">
+      <p class="content"><strong>Date</strong>: {{payment.date}}, <strong>User</strong>: {{payment.user}} purchased {{payment.productName}} for ${{payment.price}}!  </p>
+    </ng-container>
+    
     <div class="whitespace"></div>
     <ng-container *ngIf="noReviews"><div class="fillerdiv"><h2 class="content2">No listings yet! Upload your product now!</h2></div></ng-container>
     <div class="custom-shape-divider-bottom-1688329329">

@@ -54,5 +54,12 @@ export class ApiService {
     return this.http.get<any>(`http://localhost:3000/api/search?searchTerm=${searchTerm}`);
   }
 
+  paymentDetails(paymentDetails: any) {
+    return this.http.post<any>('http://localhost:3000/api/payment-details', paymentDetails);
+  }
+
+  getPaymentDetails(uid: any) {
+    return this.http.get<any>(`http://localhost:3000/api/payment-details?uid=${uid}`);
+  }
   
 }
