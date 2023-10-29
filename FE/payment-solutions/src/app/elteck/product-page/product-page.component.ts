@@ -132,7 +132,6 @@ export class ProductPageComponent {
   createCoinbaseCharge(product: any) {
     const auth = getAuth();
     const user = auth.currentUser;
-    console.log(product);
     return this.http.post<any>(
       `http://localhost:3000/api/create-coinbase-charge`,
       { product, user }

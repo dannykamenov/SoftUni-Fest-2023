@@ -18,14 +18,18 @@ async function paymentStripe(req, res) {
 }
 
 async function paymentCoinbase(req, res) {
-    const { title, description, price, user } = req.body.product;
+    const { title, price, user } = req.body.product;
     const {uid, email, displayName} = req.body.user;
+    let {description} = req.body.product;
+    if(description.length > 200) {
+        description = description.substring(0, 200);
+    }
 
     const charge = {
         "name": title,
         "description": description,
         "local_price": {
-            "amount": price,
+            "amount": Number(price),
             "currency": "USD"
         },
         "pricing_type": "fixed_price",
@@ -49,6 +53,7 @@ async function paymentCoinbase(req, res) {
         res.status(200).json(response.data);
     } catch (err) {
         res.status(500).json({ error: err });
+        console.log(err.response.data)
     }
 
 }
