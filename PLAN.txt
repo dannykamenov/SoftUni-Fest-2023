@@ -9,6 +9,3 @@
 - buy button - DONE
 - add crypto payments - DONE
 
-
-- github projects board!
-
