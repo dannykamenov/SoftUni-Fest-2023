@@ -16,6 +16,7 @@ async function paymentStripe(req, res) {
         res.status(500).json({ error: err });
     }
 }
+// lol
 
 async function paymentCoinbase(req, res) {
     const { title, price, user } = req.body.product;
